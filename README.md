@@ -16,7 +16,7 @@ CONFIG=$(cat << 'EOL'
 server {
     listen 80;
     server_name _;
-    root /var/www/html;
+    root /var/www/html/sport-registration;
     index index.php index.html index.htm;
     location / {
         try_files $uri $uri/ =404;
@@ -50,7 +50,9 @@ php -v
 sudo systemctl status php$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")-fpm
 ```
 ## Seiteninhalte einfügen
+```
 cd /var/www/html
-git clone https://github.com/richtertoralf/Wettkampfanmeldung/
+git clone https://github.com/richtertoralf/sport-registration/
 sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 775 /var/www/html
+```
