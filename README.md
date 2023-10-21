@@ -1,4 +1,4 @@
-# Wettkampfanmeldung
+# Wettkampfanmeldung (sport-registration)
 simples Beispiel für eine Webseite zur Anmeldung bei einem Wettkampf
 ## Installation von nginx und php auf Ubuntu 22.04
 ```
@@ -37,7 +37,7 @@ sudo ln -s /etc/nginx/sites-available/sport-registration.conf /etc/nginx/sites-e
 sudo rm /etc/nginx/sites-available/default
 sudo rm /etc/nginx/sites-enabled/default
 sudo chown -R www-data:www-data /var/www/html
-sudo chmod -R 755 /var/www/html
+sudo chmod -R 775 /var/www/html
 echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/phpinfo.php
 # teste die Konfiguration
 nginx -t
@@ -50,3 +50,7 @@ php -v
 sudo systemctl status php$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")-fpm
 ```
 ## Seiteninhalte einfügen
+cd /var/www/html
+git clone https://github.com/richtertoralf/Wettkampfanmeldung/
+sudo chown -R www-data:www-data /var/www/html
+sudo chmod -R 775 /var/www/html
