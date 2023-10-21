@@ -1,52 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wettkampfanmeldung</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div class="container">
         <h2>Einzelanmeldung</h2>
-        <form action="https://www.atsv-sport.de/ski/anmeldung" method="post">
-            <div class="form-group">
-                <label for="formSpNr">Startpassnummer SVSAC</label>
-                <input type="text" class="form-control" id="formSpNr" name="regEntry[0][SpNr]" required>
-                <small class="form-text text-muted">Die Startpassnummer besteht aus zwei vierstelligen Zahlenreihen, die mit einem Bindestrich verbunden sind, z.B. 2487-8421.</small>
-            </div>
-            <div class="form-group">
-                <label for="formsurname">Nachname<span class="required">*</span></label>
-                <input type="text" class="form-control" id="formsurname" name="regEntry[0][surname]" required>
-            </div>
-            <div class="form-group">
-                <label for="formforename">Vorname<span class="required">*</span></label>
-                <input type="text" class="form-control" id="formforename" name="regEntry[0][forename]" required>
-            </div>
-            <div class="form-group">
-                <label for="formsex">Geschlecht<span class="required">*</span></label>
-                <select class="custom-select" id="formsex" name="regEntry[0][sex]" required>
-                    <option value="m">männlich</option>
-                    <option value="w">weiblich</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="formyearofbirth">Geburtsjahr<span class="required">*</span></label>
-                <input type="text" class="form-control" id="formforename" name="regEntry[0][forename]" required>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="formgroup">Gruppe</label>
-                <input type="number" class="form-control" id="formgroup" name="regEntry[0][group]">
-                <small class="form-text text-muted">Gültige Gruppen sind 1, 2, 3 und 4.</small>
-            </div>
-            <div class="form-group">
-                <label for="formsingle_email">E-Mail<span class="required">*</span></label>
-                <input type="email" class="form-control" id="formsingle_email" name="single_email" required>
-            </div>
-            <div class="form-group">
-                <label for="formMessage">Anmerkung</label>
-                <textarea class="form-control" id="formMessage" name="single_message" maxlength="4000"></textarea>
-            </div>
-               <button type="submit" name="submit" class="btn btn-primary mt-3">Abschicken</button>
+        <form action="conformation.php" method="post">
+            <label for="formSpNr">Startpassnummer SVSAC</label>
+            <input type="text" name="regEntry[0][SpNr]" required>
+            <small>Die Startpassnummer besteht aus zwei vierstelligen Zahlenreihen, die mit einem Bindestrich verbunden sind, z.B. 2487-8421.</small>
+
+            <label for="formsurname">Nachname<span class="required">*</span></label>
+            <input type="text" name="regEntry[0][surname]" required>
+
+            <label for="formforename">Vorname<span class="required">*</span></label>
+            <input type="text" name="regEntry[0][forename]" required>
+
+            <label for="formsex">Geschlecht<span class="required">*</span></label>
+            <select name="regEntry[0][sex]" required>
+                <option value="m">männlich</option>
+                <option value="w">weiblich</option>
+            </select>
+
+            <label for="formyearofbirth">Geburtsjahr<span class="required">*</span></label>
+            <input type="text" name="regEntry[0][yearofbirth]" required>
+
+            <label for="formgroup">Gruppe</label>
+            <input type="number" name="regEntry[0][group]">
+            <small>Gültige Gruppen sind 1, 2, 3 und 4.</small>
+
+            <label for="formsingle_email">E-Mail<span class="required">*</span></label>
+            <input type="email" name="single_email" required>
+            <nav>
+                <button type="submit" name="submit">Abschicken</button>
+            </nav>
         </form>
     </div>
 </body>
