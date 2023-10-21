@@ -6,6 +6,8 @@ simples Beispiel für eine Webseite zur Anmeldung bei einem Wettkampf
 sudo apt update -y && sudo apt upgrade -y
 sudo apt install nginx
 sudo apt install php-fpm
+# welche php-Version wurde installiert?
+php -v
 ```
 ## nginx und php konfigurieren
 ```
