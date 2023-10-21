@@ -11,4 +11,3 @@ header('Content-Disposition: attachment; filename="' . $downloadFilename . '"');
 
 // CSV-Datei ausgeben
 readfile($csvFile);
-?>
