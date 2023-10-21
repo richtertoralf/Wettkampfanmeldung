@@ -40,6 +40,7 @@ sudo rm /etc/nginx/sites-enabled/default
 nginx -t
 # Starte Nginx neu, um die Änderungen zu übernehmen
 sudo systemctl restart nginx
+sudo systemctl restart php*
 # Testen ob nginx und php läuft_
 sudo systemctl status nginx.service
 php -v
