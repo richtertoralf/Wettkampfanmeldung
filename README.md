@@ -36,6 +36,9 @@ echo "$CONFIG" | sudo tee /etc/nginx/sites-available/sport-registration.conf
 sudo ln -s /etc/nginx/sites-available/sport-registration.conf /etc/nginx/sites-enabled/
 sudo rm /etc/nginx/sites-available/default
 sudo rm /etc/nginx/sites-enabled/default
+sudo chown -R www-data:www-data /var/www/html
+sudo chmod -R 755 /var/www/html
+echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/phpinfo.php
 # teste die Konfiguration
 nginx -t
 # Starte Nginx neu, um die Änderungen zu übernehmen
@@ -46,3 +49,4 @@ sudo systemctl status nginx.service
 php -v
 sudo systemctl status php$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")-fpm
 ```
+## Seiteninhalte einfügen
