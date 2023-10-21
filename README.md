@@ -32,7 +32,7 @@ server {
 EOL
 )
 # Schreibe den Konfigurationsinhalt in die Datei
-echo "$CONFIG" > /etc/nginx/sites-available/sport-registration.conf > /dev/null
+sudo echo "$CONFIG" > /etc/nginx/sites-available/sport-registration.conf > /dev/null
 sudo ln -s /etc/nginx/sites-available/sport-registration.conf /etc/nginx/sites-enabled/
 # teste die Konfiguration
 nginx -t
