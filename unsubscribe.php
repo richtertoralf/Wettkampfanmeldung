@@ -11,7 +11,7 @@
 <body>
     <div class="container_registration">
         <h1>Auf Wiedersehen</h1>
-        <p>Danke für deine Anmeldung.</p>
+        <p>Danke für deine Anmeldung. Die Zahlung des Startgeldes erfolgt am Wettkampftag im Org.-Büro. Wir wünschen dir eine gute Anreise zum Wettkampf.</p>
     </div>
 </body>
 
