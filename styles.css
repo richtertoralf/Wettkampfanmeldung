@@ -9,7 +9,7 @@ body {
     /* Dunkelgrau für Text */
 }
 
-.container {
+.container_registration {
     display: grid;
     grid-template-columns: 1fr;
     /* Eine Spalte für mobile Geräte */
@@ -18,6 +18,19 @@ body {
     padding: 20px;
     background-color: white;
     /* Weißer Hintergrund für den Inhalt */
+}
+
+.container_participants {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+}
+
+.required {
+    color: crimson;
 }
 
 /* Header */
@@ -41,13 +54,30 @@ form {
 }
 
 input[type="text"],
-input[type="number"] {
-    width: 100%;
+input[type="number"],
+input[type="email"] {
+    width: 95%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+/* Stil für die Dropdown-Elemente im Formular */
+form label + select {
+    display: block;
+    margin-bottom: 10px;
+}
+
+aside {
+    background-color: #f2f2f2; /* Hellgrauer Hintergrund */
+    color: #333; /* Dunkelgrauer Text */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px; /* Optional: etwas Abstand nach oben */
+    font-size: 0.8em; /* Kleinerer Text */
+}
+
 
 /* Teilnehmerliste */
 table {
@@ -68,15 +98,23 @@ th {
     color: white;
 }
 
-/* Footer */
-.footer {
-    background-color: #fff;
-    /* Weißer Hintergrund für den Footer */
-    padding: 10px 0;
-    text-align: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    /* leichter Schatten nach oben */
+/* Stil für den Download-Link */
+.download-link {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+    margin-top: 10px;
 }
+
+.download-link:hover {
+    background-color: #45a049;
+}
+
 
 /* Grid für Navigationselement */
 nav {
@@ -100,6 +138,7 @@ nav button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    outline: none;
 }
 
 nav button:hover {
