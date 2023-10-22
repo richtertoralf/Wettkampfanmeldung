@@ -9,12 +9,12 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container_registration">
         <h2>Einzelanmeldung</h2>
         <form action="conformation.php" method="post">
             <label for="formSpNr">Startpassnummer SVSAC</label>
             <input type="text" name="regEntry[0][SpNr]" required>
-            <small>Die Startpassnummer besteht aus zwei vierstelligen Zahlenreihen, die mit einem Bindestrich verbunden sind, z.B. 2487-8421.</small>
+            <aside>Die Startpassnummer besteht aus zwei vierstelligen Zahlenreihen, die mit einem Bindestrich verbunden sind, z.B. 2487-8421.</aside>
 
             <label for="formsurname">Nachname<span class="required">*</span></label>
             <input type="text" name="regEntry[0][surname]" required>
@@ -31,9 +31,17 @@
             <label for="formyearofbirth">Geburtsjahr<span class="required">*</span></label>
             <input type="text" name="regEntry[0][yearofbirth]" required>
 
+            <label for="formclub">Verein<span class="required">*</span></label>
+            <input type="text" name="regEntry[0][club]" required>
+
             <label for="formgroup">Gruppe</label>
-            <input type="number" name="regEntry[0][group]">
-            <small>Gültige Gruppen sind 1, 2, 3 und 4.</small>
+            <select name="regEntry[0][group]">
+                <?php
+                for ($i = 1; $i <= 4; $i++) {
+                    echo "<option value=\"$i\">$i</option>";
+                }
+                ?>
+            </select>
 
             <label for="formsingle_email">E-Mail<span class="required">*</span></label>
             <input type="email" name="single_email" required>
