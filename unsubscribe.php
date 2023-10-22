@@ -9,9 +9,10 @@
 </head>
 
 <body>
-    <h1>Auf Wiedersehen</h1>
-    <p>Danke für deine Anmeldung.</p>
-
+    <div class="container_registration">
+        <h1>Auf Wiedersehen</h1>
+        <p>Danke für deine Anmeldung.</p>
+    </div>
 </body>
 
 </html>
