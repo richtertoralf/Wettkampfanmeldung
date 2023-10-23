@@ -1,3 +1,18 @@
+<?php
+/**
+ * participants.php
+ *
+ * Diese Datei zeigt die Meldeliste an, indem sie Daten aus der CSV-Datei "data.csv" liest und anzeigt.
+ *
+ * PHP-Version 8
+ *
+ * @category   Data Processing
+ * @package    Participant_Registration
+ * @author     Toralf Richter
+ * @link       https://github.com/richtertoralf/sport-registration/
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -16,6 +31,7 @@
         // CSV-Datei öffnen und Inhalte lesen
         $csvFile = fopen("data.csv", "r");
 
+        // Überprüfen, ob die Datei erfolgreich geöffnet wurde
         if ($csvFile !== FALSE) {
             // Tabelle für die Anzeige erstellen
             echo '<table border="1">';
@@ -45,6 +61,7 @@
             // CSV-Datei schließen
             fclose($csvFile);
         } else {
+            // Fehlermeldung anzeigen, falls die Datei nicht geöffnet werden konnte
             echo 'Fehler beim Öffnen der CSV-Datei.';
         }
         ?>
