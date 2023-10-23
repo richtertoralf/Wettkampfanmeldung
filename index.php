@@ -1,11 +1,17 @@
 <?php
+
 /**
  * index.php
  *
  * Dieses Skript stellt ein einfaches Formular zur Wettkampfanmeldung dar.
- * Es erfasst Informationen wie Startpassnummer, Name, Geschlecht, Geburtsjahr,
- * Verein, Gruppenauswahl und E-Mail-Adresse des Teilnehmers.
+ * Es erfasst Informationen wie Name, Vorname, Geschlecht, Jahrgang,
+ * Verein, Verband, Gruppenauswahl und E-Mail-Adresse des Teilnehmers.
  * Die eingegebenen Daten werden an 'conformation.php' zur Bestätigung weitergeleitet.
+ * Außerdem gibt es die Möglichkeit, eine Sammelanmeldung per Dateiupload durchzuführen.
+ * Die Upload-Datei im xls-Format muss folgende Spalten enthalten:
+ * FIS-Code-Nr.,Name,Vorname,Verband,Verein,Jahrgang,Geschlecht,FIS-Distanzpunkte,FIS-Sprintpunkte,
+ * Startnummer,Gruppe,DSV-Code-Nr.,Startpass,Waffen-Nr.,Nation,Transponder-ID
+ * Diese Struktur entspricht der Winlaufen-Importdatei und kann auch direkt in Winlaufen importiert werden.
  *
  * PHP-Version 8
  *
@@ -22,22 +28,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wettkampfanmeldung</title>
+    <title>Anmeldung</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <!-- Container für das Wettkampfanmeldeformular -->
-    <div class="container_registration">
+    <div class="container registration">
         <!-- Überschrift des Formulars -->
-        <h2>Einzelanmeldung</h2>
-        
+        <h2>Anmeldung</h2>
+
         <!-- Formular zur Einzelanmeldung, leitet Daten an 'conformation.php' weiter -->
         <form action="conformation.php" method="post">
-            
+
             <!-- Eingabefeld für die Startpassnummer -->
-            <label for="formSpNr">Startpassnummer SVSAC</label>
-            <input type="text" name="regEntry[0][SpNr]" required>
+            <label for="formSpNr">Startpass</label>
+            <input type="text" name="regEntry[0][SpNr]">
             <!-- Hinweis zur korrekten Formatierung der Startpassnummer -->
 
             <!-- Eingabefeld für den Nachnamen -->
@@ -63,8 +69,12 @@
             <label for="formclub">Verein<span class="required">*</span></label>
             <input type="text" name="regEntry[0][club]" required>
 
+            <!-- Eingabefeld für den Verband -->
+            <label for="formclub">Verband</label>
+            <input type="text" name="regEntry[0][association]">
+
             <!-- Dropdown-Menü für die Gruppenauswahl -->
-            <label for="formgroup">Gruppe</label>
+            <label for="formgroup">Startgruppe</label>
             <select name="regEntry[0][group]">
                 <?php
                 // Schleife zum Generieren von Gruppenoptionen (1 bis 4)
