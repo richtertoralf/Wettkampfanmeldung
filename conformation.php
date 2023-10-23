@@ -1,4 +1,5 @@
 <?php
+
 /**
  * conformation.php
  *
@@ -26,58 +27,83 @@
 
 <body>
 
-  <div class="container_registration">
+  <div class="container registration">
 
     <?php
-// Überprüfen, ob die Anfrage vom POST-Formular kommt
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Formulardaten erhalten
-    $spNr = $_POST["regEntry"][0]["SpNr"];
-    $surname = $_POST["regEntry"][0]["surname"];
-    $forename = $_POST["regEntry"][0]["forename"];
-    $sex = $_POST["regEntry"][0]["sex"];
-    $yearofbirth = $_POST["regEntry"][0]["yearofbirth"];
-    $club = $_POST["regEntry"][0]["club"];
-    $group = $_POST["regEntry"][0]["group"];
-    $email = $_POST["single_email"];
+    // Überprüfen, ob die Anfrage vom POST-Formular kommt
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      // Formulardaten erhalten
+      $spNr = $_POST["regEntry"][0]["SpNr"];
+      $surname = $_POST["regEntry"][0]["surname"];
+      $forename = $_POST["regEntry"][0]["forename"];
+      $sex = $_POST["regEntry"][0]["sex"];
+      $yearofbirth = $_POST["regEntry"][0]["yearofbirth"];
+      $club = $_POST["regEntry"][0]["club"];
+      $association = $_POST["regEntry"][0]["association"];
+      $group = $_POST["regEntry"][0]["group"];
+      $email = $_POST["single_email"];
 
-    // Spaltenköpfe für die CSV-Datei
-    $headers = ["Startpassnummer", "Nachname", "Vorname", "Geschlecht", "Geburtsjahr", "Verein", "Gruppe", "E-Mail"];
+      // Spaltenköpfe für die CSV-Datei
+      // FIS-Code-Nr.,Name,Vorname,Verband,Verein,Jahrgang,Geschlecht,FIS-Distanzpunkte,FIS-Sprintpunkte,
+      // Startnummer,Gruppe,DSV-Code-Nr.,Startpass,Waffen-Nr.,Nation,Transponder-ID
+      $headers = ["FIS-Code-Nr.", "Name", "Vorname", "Verband", "Verein", "Jahrgang", "Geschlecht", "FIS-Distanzpunkte", "FIS-Sprintpunkte", "Startnummer", "Gruppe", "DSV-Code-Nr.", "Startpass", "Waffen-Nr.", "Nation", "Transponder-ID", "E-Mail"];
+      // $headers = ["Startpassnummer", "Nachname", "Vorname", "Geschlecht", "Geburtsjahr", "Verein", "Gruppe", "E-Mail"];
 
-    // Daten in CSV-Datei speichern
-    $data = [$spNr, $surname, $forename, $sex, $yearofbirth, $club, $group, $email];
-    $csvFile = fopen("data.csv", "a"); // öffne die CSV-Datei im Anhänge-Modus
+      // Daten in CSV-Datei speichern
+      // Die leeren Felder bleiben in der CSV-Datei leer, da sie in der Einzelmeldung nicht abgefragt werden.
+      // Nur über die Sammelmeldung per Datei-Upload können diese Daten geliefert werden.
+      $data = [
+        "",           // FIS-Code-Nr.
+        $surname,     // Name
+        $forename,    // Vorname
+        $association, // Verband
+        $club,        // Verein
+        $yearofbirth, // Jahrgang
+        $sex,         // Geschlecht
+        "",           // FIS-Distanzpunkte
+        "",           // FIS-Sprintpunkte
+        "",           // Startnummer
+        $group,       // Gruppe
+        "",           // DSV-Code-Nr.
+        $spNr,        // Startpass
+        "",           // Waffen-Nr.
+        "",           // Nation
+        "",           // Transponder-ID
+        $email        // E-Mail
+      ];
 
-    if (filesize("data.csv") == 0) {
+      $csvFile = fopen("data.csv", "a"); // öffne die CSV-Datei im Anhänge-Modus
+
+      if (filesize("data.csv") == 0) {
         // Wenn die Datei leer ist, schreibe die Spaltenköpfe
         fputcsv($csvFile, $headers);
+      }
+
+      fputcsv($csvFile, $data); // schreibe die Daten in die CSV-Datei
+      fclose($csvFile); // schließe die CSV-Datei
+
+      // Daten auf der Webseite anzeigen
+      echo "<h2>Einzelanmeldung erfolgreich eingegangen:</h2>";
+      echo "<table>";
+      echo "<tr><td>Startpassnummer:</td><td>$spNr</td></tr>";
+      echo "<tr><td>Nachname:</td><td>$surname</td></tr>";
+      echo "<tr><td>Vorname:</td><td>$forename</td></tr>";
+      echo "<tr><td>Geschlecht:</td><td>$sex</td></tr>";
+      echo "<tr><td>Geburtsjahr:</td><td>$yearofbirth</td></tr>";
+      echo "<tr><td>Verein:</td><td>$club</td></tr>";
+      echo "<tr><td>Verband:</td><td>$association</td></tr>";
+      echo "<tr><td>Gruppe:</td><td>$group</td></tr>";
+      echo "<tr><td>E-Mail:</td><td>$email</td></tr>";
+      echo "</table>";
+    } else {
+      echo "Ungültige Anfrage";
     }
 
-    fputcsv($csvFile, $data); // schreibe die Daten in die CSV-Datei
-    fclose($csvFile); // schließe die CSV-Datei
-
-            // Daten auf der Webseite anzeigen
-            echo "<h2>Einzelanmeldung erfolgreich eingegangen:</h2>";
-            echo "<table>";
-            echo "<tr><td>Startpassnummer:</td><td>$spNr</td></tr>";
-            echo "<tr><td>Nachname:</td><td>$surname</td></tr>";
-            echo "<tr><td>Vorname:</td><td>$forename</td></tr>";
-            echo "<tr><td>Geschlecht:</td><td>$sex</td></tr>";
-            echo "<tr><td>Geburtsjahr:</td><td>$yearofbirth</td></tr>";
-            echo "<tr><td>Verein:</td><td>$club</td></tr>";
-            echo "<tr><td>Gruppe:</td><td>$group</td></tr>";
-            echo "<tr><td>E-Mail:</td><td>$email</td></tr>";
-            echo "</table>";
-  
-} else {
-    echo "Ungültige Anfrage";
-}
-
-// Navigation einfügen
-include('navigation.php');
-?>
+    // Navigation einfügen
+    include('navigation.php');
+    ?>
   </div>
-  
+
 </body>
 
 </html>
