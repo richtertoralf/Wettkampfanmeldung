@@ -1,4 +1,5 @@
 <?php
+
 /**
  * participants.php
  *
@@ -24,7 +25,7 @@
 </head>
 
 <body>
-    <div class="container_participants">
+    <div class="container participants">
         <h2>Meldeliste</h2>
 
         <?php
@@ -33,14 +34,19 @@
 
         // Überprüfen, ob die Datei erfolgreich geöffnet wurde
         if ($csvFile !== FALSE) {
+            // Header-Zeile (erste Zeile) aus der CSV-Datei lesen
+            $headers = fgetcsv($csvFile, 1000, ",");
+
             // Tabelle für die Anzeige erstellen
             echo '<table border="1">';
 
-            // Spaltenköpfe aus der ersten Zeile der CSV-Datei lesen und in die Tabelle einfügen
-            $headers = fgetcsv($csvFile, 1000, ",");
+            // Header-Zeile als <th> (Header) in der Tabelle anzeigen
             echo '<tr>';
-            foreach ($headers as $header) {
-                echo '<th>' . htmlspecialchars($header) . '</th>';
+            foreach ($headers as $index => $header) {
+                // Zeige den Header nur an, wenn es die gewünschten Spalten sind (Index 1, 2, 4, 5, 6)
+                if ($index == 1 || $index == 2 || $index == 4 || $index == 5 || $index == 6) {
+                    echo '<th>' . htmlspecialchars($header) . '</th>';
+                }
             }
             echo '</tr>';
 
@@ -48,9 +54,12 @@
             $rowCounter = 0;
             while (($data = fgetcsv($csvFile, 1000, ",")) !== FALSE && $rowCounter < 2000) {
                 echo '<tr>';
-                foreach ($data as $value) {
-                    echo '<td>' . htmlspecialchars($value) . '</td>';
-                }
+                // Zeige nur bestimmte Spalten (Index 1, 2, 4, 5, 6) aus dem $data-Array in der Tabelle an
+                echo '<td>' . htmlspecialchars($data[1]) . '</td>'; // Name
+                echo '<td>' . htmlspecialchars($data[2]) . '</td>'; // Vorname
+                echo '<td>' . htmlspecialchars($data[4]) . '</td>'; // Jahrgang
+                echo '<td>' . htmlspecialchars($data[5]) . '</td>'; // Geschlecht
+                echo '<td>' . htmlspecialchars($data[6]) . '</td>'; // Gruppe
                 echo '</tr>';
                 $rowCounter++;
             }
