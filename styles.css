@@ -3,56 +3,51 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f7f7f7;
-    /* sehr helles Grau */
-    color: #333;
-    /* Dunkelgrau für Text */
+    background-color: #f7f7f7; /* Sehr helles Grau */
+    color: #333; /* Dunkelgrau für Text */
 }
 
-.container_registration {
+/* Container-Stile für Anmeldung und Teilnehmerliste */
+.container {
     display: grid;
     grid-template-columns: 1fr;
-    /* Eine Spalte für mobile Geräte */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white; /* Weißer Hintergrund für den Inhalt */
+}
+
+/* Styles für den Container "registration" */
+.registration {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    /* Weißer Hintergrund für den Inhalt */
 }
 
-.container_participants {
-    display: grid;
-    grid-template-columns: 1fr;
+/* Styles für den Container "participants" */
+.participants {
     max-width: 1900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
 }
 
 .required {
-    color: crimson;
+    color: crimson; /* Rote Farbe für erforderliche Felder */
 }
 
-/* Header */
+/* Header-Stile */
 h1 {
     text-align: center;
     margin: 20px 0;
-    color: #333;
-    /* Dunkelgrau für Überschriften */
+    color: #333; /* Dunkelgrau für Überschriften */
 }
 
-/* Formularstyles (für die Einzelanmeldung) */
+/* Formular-Stile */
 form {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
-    /* Weißer Hintergrund für das Formular */
+    background-color: #fff; /* Weißer Hintergrund für das Formular */
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    /* leichter Schatten */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
 }
 
+/* Eingabefeld-Stile */
 input[type="text"],
 input[type="number"],
 input[type="email"] {
@@ -63,23 +58,23 @@ input[type="email"] {
     border-radius: 5px;
 }
 
-/* Stil für die Dropdown-Elemente im Formular */
-form label + select {
+/* Stil für Dropdown-Elemente im Formular */
+form label+select {
     display: block;
     margin-bottom: 10px;
 }
 
+/* Stil für Hinweise neben den Eingabefeldern */
 aside {
     background-color: #f2f2f2; /* Hellgrauer Hintergrund */
     color: #333; /* Dunkelgrauer Text */
     padding: 10px;
     border-radius: 5px;
-    margin-bottom: 5px; /* Optional: etwas Abstand nach oben */
+    margin-bottom: 5px;
     font-size: 0.8em; /* Kleinerer Text */
 }
 
-
-/* Teilnehmerliste */
+/* Stil für Tabellen in der Teilnehmerliste */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -94,11 +89,16 @@ td {
 }
 
 th {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Grüne Farbe für Tabellenspaltenköpfe */
     color: white;
+    font-size: 0.8em; /* Kleinerer Text für die Spaltenüberschriften*/
 }
 
-/* Stil für den Download-Link */
+td {
+    font-size: 0.9em; /* etwas kleinerer Text, um mehr Inhalte anzeigen zu können */
+}
+
+/* Stil für Download-Links */
 .download-link {
     background-color: #4CAF50;
     color: white;
@@ -115,21 +115,15 @@ th {
     background-color: #45a049;
 }
 
-
-/* Grid für Navigationselement */
+/* Stil für Navigationsbuttons */
 nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* Drei gleichbreite Spalten für die Buttons */
     gap: 10px;
-    /* Abstand zwischen den Spalten */
     justify-content: center;
-    /* Zentriert die Spalten horizontal */
     margin-top: 20px;
-    /* Fügt etwas Abstand oben hinzu */
 }
 
-/* Stil für die Buttons im Navigationselement */
 nav button {
     background-color: #4CAF50;
     color: white;
