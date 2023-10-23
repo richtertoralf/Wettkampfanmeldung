@@ -1,25 +1,25 @@
 # Wettkampfanmeldung (sport-registration)
-simples Beispiel für eine Webseite zur Anmeldung bei einem Wettkampf
+Dieses Repository stellt ein einfaches Beispiel für eine Webseite zur Wettkampfanmeldung dar.
 ## Installation von nginx und php auf Ubuntu 22.04
 ```
-# Installierenvon nginx und php
+# Aktualisiere das System und installiere nginx und php
 sudo apt update -y && sudo apt upgrade -y
 sudo apt install nginx php-fpm -y
-# welche Versionen wurde installiert?
+
+# Überprüfe die installierten Versionen
 php -v && nginx -v
-# mich der Gruppe www-data hinzufügen, damit ich Änderungen an den Inhaltsdateien für die Webseite vornehmen kann:
+
+# Füge deinen Benutzer zur www-data Gruppe hinzu, um Änderungen an den Webseite-Inhaltsdateien vornehmen zu können
 sudo adduser $USER www-data
-# danach ab- und wieder anmelden
+
+# Logge dich aus und wieder ein, um die Gruppenänderungen zu übernehmen
 ```
-## nginx und php konfigurieren
-Debian und Ubuntu Distributionen haben für die Konfiguration die Datei /etc/nginx/sites-available/default hinzugefügt und dann einen Symlink zu /etc/nginx/sites-enabled/ gesetzt. Das ist typisch für einen Apache2-Server, nicht aber für nginx. Der nginx-Standart ist die Verwendung von Konfigurationsdateien im Ordner /etc/nginx/conf.d/ Dieser Ordner ist nach der Installation leer. Dort könnte eine Konfigurationsdatei abelegt werden.  
-Ich bleibe aber bei dem Debian/Ubuntu Sonderweg.
+## Konfiguration von nginx und php
+Nach der Installation von nginx und php müssen die Konfigurationsdateien entsprechend angepasst werden. In diesem Fall folgen wir dem Debian/Ubuntu-Sonderweg für die nginx-Konfiguration.
 ```
-# Symlink zur vorhandenen Konfiguratiionsdatei löschen, damit diese Einstellungen nicht zu Konflikten führen. 
-# sudo rm /etc/nginx/sites-available/default
+# Lösche den Symlink zur vorhandenen Konfigurationsdatei, um Konflikte zu vermeiden
 sudo rm /etc/nginx/sites-enabled/default
-```
-```
+
 # Definiere den Inhalt der Nginx-Konfigurationsdatei für die Verwendung von php
 CONFIG=$(cat << 'EOL'
 server {
@@ -40,30 +40,35 @@ server {
 }
 EOL
 )
+
 # Schreibe den Konfigurationsinhalt in die Datei
 echo "$CONFIG" | sudo tee /etc/nginx/sites-available/sport-registration.conf
-# schalte die sport-registration.conf ein, indem ich den Symlink setze:
+
+# Aktiviere die sport-registration.conf, indem du den Symlink setzt
 sudo ln -s /etc/nginx/sites-available/sport-registration.conf /etc/nginx/sites-enabled/
-# Berechtigungen setzen
+
+# Setze die Berechtigungen für das Webverzeichnis
 sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 775 /var/www/html
-# teste die Konfiguration
+
+# Überprüfe die nginx-Konfiguration
 sudo nginx -t
-# Starte Nginx neu, um die Änderungen zu übernehmen
+
+# Starte Nginx und php-fpm neu, um die Änderungen zu übernehmen
 sudo systemctl restart nginx
-sudo systemctl restart php*
-# Testen ob nginx und php läuft_
-sudo systemctl status nginx.service
-sudo systemctl status php*
-# sudo systemctl status php$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")-fpm
-# zum Testen, eine phpinfo Datei anlegen:
-# echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/sport-registration/phpinfo.php
-# und im Browser aufrufen...
+sudo systemctl restart php8.1-fpm
+
 ```
 ## Seiteninhalte einfügen
 ```
+# Wechsle zum Webverzeichnis
 cd /var/www/html
+
+# Klone das sport-registration-Repository
 git clone https://github.com/richtertoralf/sport-registration/
+
+# Setze die Berechtigungen für das Repository
 sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 775 /var/www/html
+
 ```
