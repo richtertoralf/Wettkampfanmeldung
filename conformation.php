@@ -20,7 +20,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ihre Titel hier</title>
+  <title>Anmeldung</title>
   <link rel="stylesheet" href="styles.css"> <!-- Hier wird die CSS-Datei eingebunden -->
 </head>
 
@@ -56,18 +56,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     fputcsv($csvFile, $data); // schreibe die Daten in die CSV-Datei
     fclose($csvFile); // schließe die CSV-Datei
 
-    // Daten auf der Webseite anzeigen
-    echo "<h2>Einzelanmeldung erfolgreich eingegangen:</h2>";
-    echo "<ul>";
-    echo "<li><strong>Startpassnummer:</strong> $spNr</li>";
-    echo "<li><strong>Nachname:</strong> $surname</li>";
-    echo "<li><strong>Vorname:</strong> $forename</li>";
-    echo "<li><strong>Geschlecht:</strong> $sex</li>";
-    echo "<li><strong>Geburtsjahr:</strong> $yearofbirth</li>";
-    echo "<li><strong>Verein:</strong> $club</li>";
-    echo "<li><strong>Gruppe:</strong> $group</li>";
-    echo "<li><strong>E-Mail:</strong> $email</li>";
-    echo "</ul>";
+            // Daten auf der Webseite anzeigen
+            echo "<h2>Einzelanmeldung erfolgreich eingegangen:</h2>";
+            echo "<table>";
+            echo "<tr><td>Startpassnummer:</td><td>$spNr</td></tr>";
+            echo "<tr><td>Nachname:</td><td>$surname</td></tr>";
+            echo "<tr><td>Vorname:</td><td>$forename</td></tr>";
+            echo "<tr><td>Geschlecht:</td><td>$sex</td></tr>";
+            echo "<tr><td>Geburtsjahr:</td><td>$yearofbirth</td></tr>";
+            echo "<tr><td>Verein:</td><td>$club</td></tr>";
+            echo "<tr><td>Gruppe:</td><td>$group</td></tr>";
+            echo "<tr><td>E-Mail:</td><td>$email</td></tr>";
+            echo "</table>";
+  
 } else {
     echo "Ungültige Anfrage";
 }
