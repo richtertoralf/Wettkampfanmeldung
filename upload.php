@@ -7,6 +7,14 @@
  * die dann an die bestehende "data.csv"-Datei angefügt wird.
  * Es werden die Spaltenköpfe der hochgeladenen Datei mit der internen Meldeliste (data.csv)
  * verglichen. Dabei werden Leerzeichen sowie Groß- und Kleinschreibung ignoriert.
+ * Achtung!
+ * Die Upload-Datei im csv(!)-Format muss folgende Spalten enthalten:
+ * FIS-Code-Nr.,Name,Vorname,Verband,Verein,Jahrgang,Geschlecht,FIS-Distanzpunkte,FIS-Sprintpunkte,
+ * Startnummer,Gruppe,DSV-Code-Nr.,Startpass,Waffen-Nr.,Nation,Transponder-ID, E-Mail
+ * Die Spalte "E-Mail" soll es dem Wettkampfausrichter ermöglichen, Kontakt mit dem Meldenden aufzunehmen.
+ * Diese Datei-Struktur entspricht der Winlaufen-Importdatei plus das Feld "E-Mail".
+ * Um diese Datei nach dem Download, in Winlaufen importierten zu können, muss derzeit noch die
+ * heruntergeladene csv-Datei in eine xls-Datei umgewandelt und die Spalte "E-Mail" entfernt werden.
  *
  * PHP-Version 8
  *
