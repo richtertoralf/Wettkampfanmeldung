@@ -45,6 +45,9 @@
             <label for="formSpNr">Startpass</label>
             <input type="text" name="regEntry[0][SpNr]">
             <!-- Hinweis zur korrekten Formatierung der Startpassnummer -->
+            <!-- <aside>
+                <p>Die SVSAC Startpassnummer besteht aus zwei vierstelligen Zahlenreihen, die mit einem Bindestrich verbunden sind, z.B. 2487-8421. Die Nummer findest du auf deinem SVS-Ausweis.</p>
+            </aside> -->
 
             <!-- Eingabefeld für den Nachnamen -->
             <label for="formsurname">Nachname<span class="required">*</span></label>
@@ -64,7 +67,9 @@
             <!-- Eingabefeld für das Geburtsjahr -->
             <label for="formyearofbirth">Geburtsjahr<span class="required">*</span></label>
             <input type="text" name="regEntry[0][yearofbirth]" required>
-
+            <!-- <aside>
+                <p>Der Jahrgang muss als vierstellige Zahl angegeben werden, "1989".</p>
+            </aside> -->
             <!-- Eingabefeld für den Verein -->
             <label for="formclub">Verein<span class="required">*</span></label>
             <input type="text" name="regEntry[0][club]" required>
@@ -87,11 +92,15 @@
             <!-- Eingabefeld für die E-Mail-Adresse -->
             <label for="formsingle_email">E-Mail<span class="required">*</span></label>
             <input type="email" name="single_email" required>
-
+            <aside>
+                <p>Die mit einem roten Stern versehenen Felder sind Pflichtangaben.</p>
+            </aside>
             <!-- Absenden-Button -->
             <nav>
-                <button type="submit" name="submit">Abschicken</button>
+                <button type="submit" name="submit" class="nav-button">Einzelmeldung abschicken</button>
+                <a href="upload.php" class="nav-button">Meldeliste hochladen</a>
             </nav>
+
         </form>
     </div>
 </body>
