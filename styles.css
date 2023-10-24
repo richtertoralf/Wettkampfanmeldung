@@ -3,8 +3,10 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f7f7f7; /* Sehr helles Grau */
-    color: #333; /* Dunkelgrau für Text */
+    background-color: #f7f7f7;
+    /* Sehr helles Grau */
+    color: #333;
+    /* Dunkelgrau für Text */
 }
 
 /* Container-Stile für Anmeldung und Teilnehmerliste */
@@ -13,12 +15,13 @@ body {
     grid-template-columns: 1fr;
     margin: 0 auto;
     padding: 20px;
-    background-color: white; /* Weißer Hintergrund für den Inhalt */
+    background-color: rgb(214, 214, 214);
+    /* Weißer Hintergrund für den Inhalt */
 }
 
 /* Styles für den Container "registration" */
 .registration {
-    max-width: 1200px;
+    max-width: 1900px;
 }
 
 /* Styles für den Container "participants" */
@@ -27,14 +30,23 @@ body {
 }
 
 .required {
-    color: crimson; /* Rote Farbe für erforderliche Felder */
+    color: crimson;
+    /* Rote Farbe für erforderliche Felder */
 }
 
 /* Header-Stile */
 h1 {
     text-align: center;
     margin: 20px 0;
-    color: #333; /* Dunkelgrau für Überschriften */
+    color: #333;
+    /* Dunkelgrau für Überschriften */
+}
+
+h2 {
+    text-align: center;
+    margin: 10px 0;
+    color: #333;
+    /* Dunkelgrau für Überschriften */
 }
 
 /* Formular-Stile */
@@ -42,9 +54,11 @@ form {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff; /* Weißer Hintergrund für das Formular */
+    background-color: #fff;
+    /* Weißer Hintergrund für das Formular */
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Leichter Schatten */
 }
 
 /* Eingabefeld-Stile */
@@ -58,20 +72,26 @@ input[type="email"] {
     border-radius: 5px;
 }
 
+input[type="file"] {
+    margin: 10px;
+}
+
 /* Stil für Dropdown-Elemente im Formular */
 form label+select {
     display: block;
     margin-bottom: 10px;
+    min-width: 100px
 }
 
 /* Stil für Hinweise neben den Eingabefeldern */
 aside {
-    background-color: #f2f2f2; /* Hellgrauer Hintergrund */
-    color: #333; /* Dunkelgrauer Text */
-    padding: 10px;
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 1px 10px 1px;
     border-radius: 5px;
-    margin-bottom: 5px;
-    font-size: 0.8em; /* Kleinerer Text */
+    margin: 5px;
+    font-size: 0.8em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Stil für Tabellen in der Teilnehmerliste */
@@ -84,18 +104,22 @@ table {
 th,
 td {
     border: 1px solid #ddd;
-    padding: 12px;
+    padding: 8px;
     text-align: left;
 }
 
 th {
-    background-color: #4CAF50; /* Grüne Farbe für Tabellenspaltenköpfe */
+    background-color: #4CAF50;
+    /* Grüne Farbe für Tabellenspaltenköpfe */
     color: white;
-    font-size: 0.8em; /* Kleinerer Text für die Spaltenüberschriften*/
+    font-size: 0.9em;
+    /* Kleinerer Text für die Spaltenüberschriften*/
 }
 
 td {
-    font-size: 0.9em; /* etwas kleinerer Text, um mehr Inhalte anzeigen zu können */
+    font-size: 0.9em;
+    /* etwas kleinerer Text, um mehr Inhalte anzeigen zu können */
+    background-color: antiquewhite;
 }
 
 /* Stil für Download-Links */
@@ -105,10 +129,11 @@ td {
     padding: 15px 20px;
     border: none;
     border-radius: 5px;
-    text-decoration: none;
+    /* text-decoration: none; */
     display: inline-block;
     transition: background-color 0.3s;
     margin-top: 10px;
+    max-width: 400px;
 }
 
 .download-link:hover {
@@ -124,17 +149,17 @@ nav {
     margin-top: 20px;
 }
 
-nav button {
+.nav-button {
     background-color: #4CAF50;
     color: white;
+    font-size: medium;
+    text-decoration: none;
     padding: 15px 20px;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    outline: none;
 }
 
-nav button:hover {
-    background-color: #45a049;
+.nav-button:hover {
+    background-color: #2c682f;
 }
