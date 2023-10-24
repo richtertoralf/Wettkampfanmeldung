@@ -1,12 +1,7 @@
 <!-- navigation.php -->
+
 <nav>
-  <form action="index.php" method="get">
-    <button type="submit">Weitere Anmeldung</button>
-  </form>
-  <form action="participants.php" method="get">
-    <button type="submit">Meldeliste anzeigen</button>
-  </form>
-  <form action="unsubscribe.php" method="get">
-    <button type="submit">Anmeldung beenden</button>
-  </form>
+  <a href="index.php" class="nav-button">Weitere Anmeldung</a>
+  <a href="participants.php" class="nav-button">Meldeliste anzeigen</a>
+  <a href="unsubscribe.php" class="nav-button">Anmeldung beenden</a>
 </nav>
