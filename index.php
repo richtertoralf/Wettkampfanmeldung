@@ -8,10 +8,6 @@
  * Verein, Verband, Gruppenauswahl und E-Mail-Adresse des Teilnehmers.
  * Die eingegebenen Daten werden an 'conformation.php' zur Bestätigung weitergeleitet.
  * Außerdem gibt es die Möglichkeit, eine Sammelanmeldung per Dateiupload durchzuführen.
- * Die Upload-Datei im xls-Format muss folgende Spalten enthalten:
- * FIS-Code-Nr.,Name,Vorname,Verband,Verein,Jahrgang,Geschlecht,FIS-Distanzpunkte,FIS-Sprintpunkte,
- * Startnummer,Gruppe,DSV-Code-Nr.,Startpass,Waffen-Nr.,Nation,Transponder-ID
- * Diese Struktur entspricht der Winlaufen-Importdatei und kann auch direkt in Winlaufen importiert werden.
  *
  * PHP-Version 8
  *
