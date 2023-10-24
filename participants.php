@@ -4,6 +4,7 @@
  * participants.php
  *
  * Diese Datei zeigt die Meldeliste an, indem sie Daten aus der CSV-Datei "data.csv" liest und anzeigt.
+ * Dabei werden aber nicht alle Elemente, sondern nur Name, Vorname, Jahrgang, Geschlecht und Gruppe ausgweählt.
  *
  * PHP-Version 8
  *
