@@ -5,9 +5,6 @@ packages:
   - php-fpm
   - git
 
-runcmd:
-  - PHP_VERSION=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")
-
 write_files:
   - path: /etc/nginx/sites-available/sport-registration.conf
     permissions: '0644'
@@ -22,7 +19,7 @@ write_files:
           }
           location ~ \.php$ {
               include snippets/fastcgi-php.conf;
-              fastcgi_pass unix:/var/run/php/php${PHP_VERSION}-fpm.sock;
+              fastcgi_pass unix:/var/run/php/php-fpm.sock;
           }
           location ~ /\.ht {
               deny all;
@@ -30,6 +27,8 @@ write_files:
       }
 
 runcmd:
+  - PHP_VERSION=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")
+  - sed -i "s|fastcgi_pass unix:/var/run/php/php-fpm.sock;|fastcgi_pass unix:/var/run/php/php${PHP_VERSION}-fpm.sock;|" /etc/nginx/sites-available/sport-registration.conf
   - rm /etc/nginx/sites-enabled/default
   - ln -s /etc/nginx/sites-available/sport-registration.conf /etc/nginx/sites-enabled/
   - systemctl restart nginx
