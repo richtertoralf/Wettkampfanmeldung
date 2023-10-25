@@ -94,9 +94,14 @@
             <!-- Absenden-Button -->
             <nav>
                 <button type="submit" name="submit" class="nav-button">Einzelmeldung abschicken</button>
-                <a href="upload.php" class="nav-button">Meldeliste hochladen</a>
+                <a href="participants.php" class="nav-button">Meldeliste anzeigen</a>
+                <a href="upload.php" class="nav-button">Meldedatei hochladen</a>
             </nav>
-
+            <aside>
+                <p>Die Meldeliste muss den Vorgaben für das Programm Winlaufen des Deutschen Skiverbandes entsprechen.</p>
+                <p>Bitte verwende deshalb ausschließlich diese csv-Datei als Vorlage: <a href="VorlageMeldedatei.csv" download>VorlageMeldedatei.csv</a></p>
+                <p>Die Spaltenköpfe dürfen nicht verändert werden.</p>
+            </aside>
         </form>
     </div>
 </body>
