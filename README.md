@@ -1,5 +1,8 @@
 # Wettkampfanmeldung (sport-registration)
 Dieses Repository stellt ein einfaches Beispiel für eine Webseite zur Wettkampfanmeldung dar.
+
+## Installation per cloud-init
+>In der Datei cloud-init findest du einen Vorschlag, um den Server automatisch zu installieren und zu konfigurieren. Du solltest nur darauf achten, eine Ubuntu Distribution z. B. 22.04, auzuwählen. Getestet habe ich diese cloud-init bei Hetzner.
 ## Installation von nginx und php auf Ubuntu 22.04
 ```
 # Aktualisiere das System und installiere nginx und php
