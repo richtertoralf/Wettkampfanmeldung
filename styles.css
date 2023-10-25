@@ -89,6 +89,9 @@ td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 th {
@@ -137,8 +140,10 @@ button.nav-button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    border: none; /* Entfernt den Standardrand des Buttons */
-    box-shadow: none; /* Entfernt den Standard-Schatten des Buttons */
+    border: none;
+    /* Entfernt den Standardrand des Buttons */
+    box-shadow: none;
+    /* Entfernt den Standard-Schatten des Buttons */
 }
 
 /* Stil für Link-Button */
