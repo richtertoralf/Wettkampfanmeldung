@@ -27,8 +27,10 @@ write_files:
       }
 
 runcmd:
+  - /etc/nginx/sites-enabled/default
   - systemctl restart nginx
   - systemctl restart php*
+  - ln -s /etc/nginx/sites-available/sport-registration.conf /etc/nginx/sites-enabled/
   - cd /var/www/html
   - git clone https://github.com/richtertoralf/sport-registration/
   - chown -R www-data:www-data /var/www/html/sport-registration
