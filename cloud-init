@@ -1,22 +1,19 @@
 #cloud-config
+packages:
+  - nginx
+  - php-fpm
+  - git
+
 write_files:
   - path: /tmp/setup.sh
     permissions: '0755'
     content: |
       #!/bin/bash
-      # Wettkampfanmeldung (sport-registration) Installationsskript
-
-      # Aktualisiere das System und installiere nginx und php
-      sudo apt update -y && sudo apt upgrade -y
-      sudo apt install -y nginx php-fpm git
-
       # Lösche den Symlink zur vorhandenen Konfigurationsdatei, um Konflikte zu vermeiden
       sudo rm /etc/nginx/sites-enabled/default
-
       # Definiere den Inhalt der Nginx-Konfigurationsdatei für die Verwendung von php
       PHP_VERSION=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")
       PHP_SOCKET="/var/run/php/php${PHP_VERSION}-fpm.sock"
-
       CONFIG=$(cat << 'EOL'
       server {
           listen 80;
@@ -36,24 +33,18 @@ write_files:
       }
       EOL
       )
-
       # Schreibe den Konfigurationsinhalt in die Datei
       echo "$CONFIG" | sudo tee /etc/nginx/sites-available/sport-registration.conf
-
       # Aktiviere die sport-registration.conf, indem du den Symlink setzt
       sudo ln -s /etc/nginx/sites-available/sport-registration.conf /etc/nginx/sites-enabled/
-
       # Setze die Berechtigungen für das Webverzeichnis
       sudo chown -R www-data:www-data /var/www/html
       sudo chmod -R 775 /var/www/html
-
       # Starte Nginx und php-fpm neu, um die Änderungen zu übernehmen
       sudo systemctl restart nginx
       sudo systemctl restart php${PHP_VERSION}-fpm
-
       # Wechsle zum Webverzeichnis
       cd /var/www/html
-
       # Klone das sport-registration-Repository
       git clone https://github.com/richtertoralf/sport-registration/
 
