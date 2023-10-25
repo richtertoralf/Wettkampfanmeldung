@@ -1,70 +1,56 @@
-/* Allgemeine Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f7f7f7;
-    /* Sehr helles Grau */
     color: #333;
-    /* Dunkelgrau für Text */
 }
 
-/* Container-Stile für Anmeldung und Teilnehmerliste */
 .container {
     display: grid;
     grid-template-columns: 1fr;
     margin: 0 auto;
     padding: 20px;
     background-color: rgb(214, 214, 214);
-    /* Weißer Hintergrund für den Inhalt */
 }
 
 /* Styles für den Container "registration" */
 .registration {
-    max-width: 1900px;
+    max-width: 1500px;
 }
 
 /* Styles für den Container "participants" */
 .participants {
+    max-width: 1500px;
+}
+
+.container.max-width {
     max-width: 1900px;
 }
 
 .required {
     color: crimson;
-    /* Rote Farbe für erforderliche Felder */
 }
 
-/* Header-Stile */
-h1 {
+h1,
+h2 {
     text-align: center;
     margin: 20px 0;
     color: #333;
-    /* Dunkelgrau für Überschriften */
 }
 
-h2 {
-    text-align: center;
-    margin: 10px 0;
-    color: #333;
-    /* Dunkelgrau für Überschriften */
-}
-
-/* Formular-Stile */
 form {
-    max-width: 400px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
-    /* Weißer Hintergrund für das Formular */
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    /* Leichter Schatten */
 }
 
-/* Eingabefeld-Stile */
-input[type="text"],
-input[type="number"],
-input[type="email"] {
+form input[type="text"],
+form input[type="number"],
+form input[type="email"] {
     width: 95%;
     padding: 10px;
     margin-bottom: 10px;
@@ -72,18 +58,16 @@ input[type="email"] {
     border-radius: 5px;
 }
 
-input[type="file"] {
+form input[type="file"] {
     margin: 10px;
 }
 
-/* Stil für Dropdown-Elemente im Formular */
 form label+select {
     display: block;
     margin-bottom: 10px;
-    min-width: 100px
+    min-width: 100px;
 }
 
-/* Stil für Hinweise neben den Eingabefeldern */
 aside {
     background-color: #f2f2f2;
     color: #333;
@@ -94,7 +78,6 @@ aside {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Stil für Tabellen in der Teilnehmerliste */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -110,26 +93,21 @@ td {
 
 th {
     background-color: #4CAF50;
-    /* Grüne Farbe für Tabellenspaltenköpfe */
     color: white;
     font-size: 0.9em;
-    /* Kleinerer Text für die Spaltenüberschriften*/
 }
 
 td {
     font-size: 0.9em;
-    /* etwas kleinerer Text, um mehr Inhalte anzeigen zu können */
     background-color: antiquewhite;
 }
 
-/* Stil für Download-Links */
 .download-link {
     background-color: #4CAF50;
     color: white;
     padding: 15px 20px;
     border: none;
     border-radius: 5px;
-    /* text-decoration: none; */
     display: inline-block;
     transition: background-color 0.3s;
     margin-top: 10px;
@@ -140,7 +118,7 @@ td {
     background-color: #45a049;
 }
 
-/* Stil für Navigationsbuttons */
+/* Stil für Navigationsbereich */
 nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -149,7 +127,22 @@ nav {
     margin-top: 20px;
 }
 
-.nav-button {
+/* Stil für Absenden-Button */
+button.nav-button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: medium;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none; /* Entfernt den Standardrand des Buttons */
+    box-shadow: none; /* Entfernt den Standard-Schatten des Buttons */
+}
+
+/* Stil für Link-Button */
+a.nav-button {
     background-color: #4CAF50;
     color: white;
     font-size: medium;
@@ -160,6 +153,7 @@ nav {
     transition: background-color 0.3s;
 }
 
+/* Hover-Stil für beide Buttons */
 .nav-button:hover {
     background-color: #2c682f;
 }
