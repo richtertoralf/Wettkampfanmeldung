@@ -55,6 +55,10 @@ form label+select {
     padding: 10px;
 }
 
+form nav {
+    padding-right: 10px;
+}
+
 aside {
     background-color: #f2f2f2;
     color: #333;
@@ -115,7 +119,6 @@ nav {
     gap: 10px;
     margin: 10px 0px;
     justify-content: center;
-    width: 100%;
 }
 
 /* Stil für Absenden-Button */
