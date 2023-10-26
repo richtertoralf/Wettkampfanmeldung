@@ -45,7 +45,9 @@ form input[type="email"] {
 }
 
 form input[type="file"] {
-    margin: 10px;
+    margin: 10px 0px;
+    background-color: rgb(255, 222, 180);
+    padding: 10px;
 }
 
 form label+select {
@@ -57,6 +59,10 @@ form label+select {
 
 form nav {
     padding-right: 10px;
+}
+
+form summary {
+    margin: 10px 0px;
 }
 
 aside {
@@ -128,6 +134,7 @@ button.nav-button {
     font-size: medium;
     text-decoration: none;
     padding: 5px 10px;
+    margin: 10px 0px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -142,6 +149,7 @@ a.nav-button {
     font-size: medium;
     text-decoration: none;
     padding: 5px 10px;
+    margin: 10px 0px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
