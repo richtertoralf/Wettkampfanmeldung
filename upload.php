@@ -26,15 +26,13 @@
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="de">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Datei hochladen</title>
+    <title>Sammelanmeldung</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <!DOCTYPE html>
@@ -43,10 +41,17 @@
 <body>
 
     <div class="container registration">
-        <h2>Datei hochladen</h2>
+        <h2>Sammelanmeldung</h2>
         <form action="upload.php" method="post" enctype="multipart/form-data">
             <input type="file" name="uploadedFile" accept=".csv" required>
-            <button type="submit">Hochladen</button>
+            <button type="submit">Meldedatei hochladen</button>
+            <details>
+                <summary>
+                    Bitte verwende unbedingt diese Vorlage für die Meldedatei: <a href="VorlageMeldedatei.csv" download>VorlageMeldedatei.csv</a>
+                </summary>
+                <p>Die Meldeliste muss den Vorgaben für das Programm Winlaufen des Deutschen Skiverbandes entsprechen.</p>
+                <p>Die Spaltenköpfe dürfen nicht verändert werden.</p>
+            </details>
         </form>
 
         <?php
