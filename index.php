@@ -72,12 +72,22 @@
                     </small>
                 </div>
                 <div>
+                    <?php
+                    include 'getClubs.php';
+                    ?>
                     <label for="formclub">Verein<span class="required">*</span></label>
-                    <input type="text" name="regEntry[0][club]" required>
+                    <input list="vereinsliste" name="regEntry[0][club]" id="selectedClub" autocomplete="off" required>
+                    <datalist id="vereinsliste">
+                        <?php
+                        foreach ($clubs as $club => $association) {
+                            echo "<option value=\"$club\">";
+                        }
+                        ?>
+                    </datalist>
                 </div>
                 <div>
                     <label for="formclub">Verband</label>
-                    <input type="text" name="regEntry[0][association]">
+                    <input type="text" name="regEntry[0][association]" id="association" readonly>
                 </div>
                 <div>
                     <label for="formgroup">Startgruppe</label>
@@ -118,5 +128,6 @@
         </form>
     </div>
 </body>
+<script src="getAssociation.js"></script>
 
 </html>
