@@ -29,6 +29,13 @@
 
   <div class="container registration">
 
+    <header>
+      <?php require('raceInfo.php'); ?>
+      <p><?php echo $eventName; ?></p>
+      <p><?php echo $organizer; ?></p>
+      <p><?php echo $date; ?></p>
+    </header>
+
     <?php
     // Überprüfen, ob die Anfrage vom POST-Formular kommt
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -83,7 +90,7 @@
       fclose($csvFile); // schließe die CSV-Datei
 
       // Daten auf der Webseite anzeigen
-      echo "<h2>Einzelanmeldung erfolgreich eingegangen:</h2>";
+      echo "<h3>Einzelanmeldung erfolgreich eingegangen:</h2>";
       echo "<table>";
       echo "<tr><td>Startpassnummer:</td><td>$spNr</td></tr>";
       echo "<tr><td>Nachname:</td><td>$surname</td></tr>";
