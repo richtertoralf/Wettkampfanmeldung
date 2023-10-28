@@ -8,6 +8,12 @@ Dieses Repository stellt ein einfaches Beispiel für eine Webseite zur Wettkampf
 # Aktualisiere das System und installiere nginx und php mit composer
 sudo apt update -y && sudo apt upgrade -y
 sudo apt install nginx php-fpm composer git -y
+# fehlender Pakete für composer nachinstallieren
+sudo apt install php-dom php-gd php-simplexml php-xml php-xmlreader php-xmlwriter php-zip
+# composer aktivieren
+cd /var/www/html
+composer init --no-interaction --name="$USER/html" --description="sport-registration"
+composer require phpoffice/phpspreadsheet
 
 # Überprüfe die installierten Versionen
 php -v && nginx -v
