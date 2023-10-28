@@ -3,7 +3,6 @@ package_upgrade: true
 packages:
   - nginx
   - php-fpm
-  - composer
   - git
 
 write_files:
@@ -28,7 +27,6 @@ write_files:
       }
 
 runcmd:
-  - apt install php-dom php-gd php-simplexml php-xml php-xmlreader php-xmlwriter php-zip -y
   - PHP_VERSION=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")
   - sed -i "s|fastcgi_pass unix:/var/run/php/php-fpm.sock;|fastcgi_pass unix:/var/run/php/php${PHP_VERSION}-fpm.sock;|" /etc/nginx/sites-available/sport-registration.conf
   - rm /etc/nginx/sites-enabled/default
@@ -36,8 +34,6 @@ runcmd:
   - systemctl restart nginx
   - systemctl restart php${PHP_VERSION}-fpm
   - cd /var/www/html
-  - composer init --no-interaction --name="$USER/html" --description="sport-registration"
-  - composer require phpoffice/phpspreadsheet
   - git clone https://github.com/richtertoralf/sport-registration/
   - chown -R www-data:www-data /var/www/html/sport-registration
   - chmod -R 775 /var/www/html
