@@ -5,12 +5,14 @@ Dieses Repository stellt ein einfaches Beispiel für eine Webseite zur Wettkampf
 >In der Datei cloud-init findest du einen Vorschlag, um den Server automatisch zu installieren und zu konfigurieren. Du solltest nur darauf achten, eine Ubuntu Distribution z. B. 22.04, auzuwählen. Getestet habe ich diese cloud-init bei Hetzner.
 ## Installation von nginx und php auf Ubuntu 22.04
 ```
-# Aktualisiere das System und installiere nginx und php
+# Aktualisiere das System und installiere nginx und php mit composer
 sudo apt update -y && sudo apt upgrade -y
-sudo apt install nginx php-fpm -y
+sudo apt install nginx php-fpm composer git -y
 
 # Überprüfe die installierten Versionen
 php -v && nginx -v
+# zeige alle installierten Pakete an
+dpkg-query -W -f='${Status} ${Package}\n' | grep '^install ok installed' | grep php
 
 # Füge deinen Benutzer zur www-data Gruppe hinzu, um Änderungen an den Webseite-Inhaltsdateien vornehmen zu können
 sudo adduser $USER www-data
