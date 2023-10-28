@@ -6,13 +6,36 @@ body {
     color: #333;
 }
 
+header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+header p {
+    margin: 5px;
+    font-size: small;
+}
+
+header p:nth-child(1) {
+    text-align: left;
+}
+
+header p:nth-child(3) {
+    text-align: right;
+}
+
 .container {
     display: grid;
     grid-template-columns: 1fr;
     margin: 0 auto;
-    padding: 5vw;
+    padding: 3vw;
     background-color: rgb(214, 214, 214);
-    max-width: 95vw;
+    max-width: 97vw;
 }
 
 .required {
@@ -22,11 +45,12 @@ body {
 h1,
 h2 {
     text-align: center;
-    margin: 20px 0;
+    margin: 10px 0;
     color: #333;
 }
 
-form {
+form,
+.frame {
     padding: 2vw;
     background-color: #fff;
     border-radius: 5px;
@@ -103,22 +127,6 @@ td {
     background-color: rgb(255, 222, 180);
 }
 
-.download-link {
-    background-color: #57a35a;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    display: inline-block;
-    transition: background-color 0.3s;
-    margin-top: 10px;
-    max-width: 60vw;
-}
-
-.download-link:hover {
-    background-color: #3a863e;
-}
-
 /* Stil für Navigationsbereich */
 nav {
     display: grid;
@@ -129,13 +137,16 @@ nav {
 }
 
 /* Stil für Absenden-Button */
-button.nav-button {
+button.nav-button,
+a.nav-button,
+.nav-button {
     background-color: #4CAF50;
     color: white;
     font-size: medium;
     text-decoration: none;
     padding: 5px 10px;
     margin: 10px 0px;
+    max-width: 30vw;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -143,20 +154,23 @@ button.nav-button {
     box-shadow: none;
 }
 
-/* Stil für Link-Button */
-a.nav-button {
-    background-color: #4CAF50;
-    color: white;
-    font-size: medium;
-    text-decoration: none;
-    padding: 5px 10px;
-    margin: 10px 0px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
 /* Hover-Stil für beide Buttons */
 .nav-button:hover {
     background-color: #2c682f;
+}
+
+.download-link {
+    background-color: #57a35a;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    /* display: inline-block; */
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    max-width: 60vw;
+}
+
+.download-link:hover {
+    background-color: #3a863e;
 }
