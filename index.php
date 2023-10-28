@@ -31,10 +31,15 @@
 <body>
 
     <div class="container registration">
+        <header>
+            <?php require('raceInfo.php'); ?>
+            <p><?php echo $eventName; ?></p>
+            <p><?php echo $organizer; ?></p>
+            <p><?php echo $date; ?></p>
+        </header>
+
         <h2>Anmeldung</h2>
-        <nav>
-            <a href="participants.php" class="nav-button">Meldeliste anzeigen</a>
-        </nav>
+
         <!-- Formular zur Einzelanmeldung, leitet Daten an 'conformation.php' weiter -->
         <form action="conformation.php" method="post">
 
@@ -114,7 +119,7 @@
                 <legend>Hier kann eine Meldedatei hochgeladen werden.</legend>
                 <h3>Sammelanmeldung</h3>
                 <div>
-                    <a href="upload.php" class="nav-button">Meldedatei hochladen</a>
+                    <a href="upload.php" class="download-link">Meldedatei hochladen</a>
                     <details>
                         <summary>
                             Bitte verwende unbedingt diese Vorlage für die Meldedatei: <a href="VorlageMeldedatei.csv" download>VorlageMeldedatei.csv</a>
@@ -126,6 +131,10 @@
             </fieldset>
 
         </form>
+        <?php
+        // Navigation einfügen
+        include('navigation.php');
+        ?>
     </div>
 </body>
 <script src="getAssociation.js"></script>
