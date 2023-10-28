@@ -35,6 +35,8 @@ runcmd:
   - systemctl restart nginx
   - systemctl restart php${PHP_VERSION}-fpm
   - cd /var/www/html
+  - composer init
+  - composer require phpoffice/phpspreadsheet
   - git clone https://github.com/richtertoralf/sport-registration/
   - chown -R www-data:www-data /var/www/html/sport-registration
   - chmod -R 775 /var/www/html
