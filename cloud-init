@@ -3,6 +3,7 @@ package_upgrade: true
 packages:
   - nginx
   - php-fpm
+  - composer
   - git
 
 write_files:
