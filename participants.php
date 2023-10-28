@@ -85,8 +85,8 @@
         ?>
 
         <!-- Hier kommen zwei Links, um die Meldeliste herunterzuladen -->
-        <a href="download.php?format=csv" class="download-link">Meldeliste als CSV-Datei herunterladen</a>
-        <a href="download.php?format=xlsx" class="download-link">Meldeliste als XLSX-Datei herunterladen</a>
+        <a href="download.php?format=csv" class="download-link">Meldeliste incl. E-Mail Adressen als CSV-Datei herunterladen</a>
+        <a href="download.php?format=xlsx" class="download-link">Meldeliste als XLSX-Datei für Winlaufen-Import herunterladen</a>
         
         <?php
         // Navigation einfügen
