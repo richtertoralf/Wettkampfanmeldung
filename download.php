@@ -1,13 +1,54 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Include Autoloader of PhpSpreadsheet
+require 'vendor/autoload.php';
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 // Dateipfad zur data.csv-Datei
 $csvFile = 'data.csv';
 
-// Dateinamen für den Download
-$downloadFilename = 'meldeliste.csv';
+// Dateinamen für den Download (CSV)
+$downloadCsvFilename = 'meldeliste.csv';
 
-// CSV-Datei herunterladen
-header('Content-Type: text/csv');
-header('Content-Disposition: attachment; filename="' . $downloadFilename . '"');
+// Dateinamen für den Download (XLSX)
+$downloadXlsxFilename = 'meldeliste.xlsx';
 
-// CSV-Datei ausgeben
-readfile($csvFile);
+// CSV-Datei einlesen
+$csvData = file_get_contents($csvFile);
+$lines = explode(PHP_EOL, $csvData);
+
+// Daten aus der CSV in ein mehrdimensionales Array einfügen
+$dataArray = [];
+foreach ($lines as $line) {
+    $dataArray[] = str_getcsv($line);
+}
+
+// Spreadsheet erstellen
+$spreadsheet = new Spreadsheet();
+$sheet = $spreadsheet->getActiveSheet();
+
+// Daten aus dem Array in das Spreadsheet einfügen
+$sheet->fromArray($dataArray);
+
+// Speichere das Spreadsheet als XLSX-Datei
+$writer = new Xlsx($spreadsheet);
+$writer->save($downloadXlsxFilename);
+
+// Content-Disposition für CSV-Datei setzen und als CSV herunterladen
+if ($_GET['format'] == 'csv') {
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment; filename="' . $downloadCsvFilename . '"');
+    readfile($csvFile);
+}
+// Content-Disposition für XLSX-Datei setzen und als XLSX herunterladen
+else {
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment; filename="' . $downloadXlsxFilename . '"');
+    readfile($downloadXlsxFilename);
+    // Lösche die temporäre XLSX-Datei nach dem Download (optional)
+    unlink($downloadXlsxFilename);
+}
