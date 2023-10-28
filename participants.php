@@ -27,6 +27,14 @@
 
 <body>
     <div class="container participants">
+
+        <header>
+            <?php require('raceInfo.php'); ?>
+            <p><?php echo $eventName; ?></p>
+            <p><?php echo $organizer; ?></p>
+            <p><?php echo $date; ?></p>
+        </header>
+
         <h2>Meldeliste</h2>
 
         <?php
