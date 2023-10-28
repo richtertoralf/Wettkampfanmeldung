@@ -41,6 +41,14 @@
 <body>
 
     <div class="container registration">
+
+        <header>
+            <?php require('raceInfo.php'); ?>
+            <p><?php echo $eventName; ?></p>
+            <p><?php echo $organizer; ?></p>
+            <p><?php echo $date; ?></p>
+        </header>
+
         <h2>Sammelanmeldung</h2>
         <form action="upload.php" method="post" enctype="multipart/form-data">
             <input type="file" name="uploadedFile" accept=".csv" required>
