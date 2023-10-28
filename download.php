@@ -22,9 +22,21 @@ $csvData = file_get_contents($csvFile);
 $lines = explode(PHP_EOL, $csvData);
 
 // Daten aus der CSV in ein mehrdimensionales Array einfügen
+// $dataArray = [];
+// foreach ($lines as $line) {
+//     $dataArray[] = str_getcsv($line);
+// }
+
 $dataArray = [];
 foreach ($lines as $line) {
-    $dataArray[] = str_getcsv($line);
+    // Zerlege die Zeile in Spalten
+    $row = str_getcsv($line);
+
+    // Extrahiere die ersten 16 Spalten (ohne E-Mail, für direkten Winlaufen-Import)
+    $first10Columns = array_slice($row, 0, 16);
+
+    // Füge die ersten 16 Spalten in das $dataArray ein
+    $dataArray[] = $first10Columns;
 }
 
 // Spreadsheet erstellen
