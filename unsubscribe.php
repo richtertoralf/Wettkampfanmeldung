@@ -10,8 +10,21 @@
 
 <body>
     <div class="container registration">
-        <h1>Auf Wiedersehen</h1>
-        <p>Danke für deine Anmeldung. Die Zahlung des Startgeldes erfolgt am Wettkampftag im Org.-Büro. Wir wünschen dir eine gute Anreise zum Wettkampf.</p>
+        <header>
+            <?php require('raceInfo.php'); ?>
+            <p><?php echo $eventName; ?></p>
+            <p><?php echo $organizer; ?></p>
+            <p><?php echo $date; ?></p>
+        </header>
+        <h2>Auf Wiedersehen</h2>
+        <div class="frame">
+            <p>Danke für deine Anmeldung.</p>
+            <p>Wir wünschen dir eine gute Anreise zum Wettkampf.</p>
+        </div>
+        <?php
+        // Navigation einfügen
+        include('navigation.php');
+        ?>
     </div>
 </body>
 
