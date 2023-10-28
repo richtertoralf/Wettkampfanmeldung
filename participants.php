@@ -84,9 +84,10 @@
         }
         ?>
 
-        <!-- Hier kommt ein Link, um die Meldeliste herunterzuladen -->
-        <a href="download.php" class="download-link">Meldeliste als CSV herunterladen</a>
-
+        <!-- Hier kommen zwei Links, um die Meldeliste herunterzuladen -->
+        <a href="download.php?format=csv" class="download-link">Meldeliste als CSV-Datei herunterladen</a>
+        <a href="download.php?format=xlsx" class="download-link">Meldeliste als XLSX-Datei herunterladen</a>
+        
         <?php
         // Navigation einfügen
         include('navigation.php');
