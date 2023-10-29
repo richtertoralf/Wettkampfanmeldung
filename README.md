@@ -72,7 +72,8 @@ cd /var/www/html
 # Klone das sport-registration-Repository
 git clone https://github.com/richtertoralf/sport-registration/
 
-# installiere phpoffice/phpspreadsheet per composer
+# wechsel ins Projektverzeichnis und installiere phpoffice/phpspreadsheet per composer
+cd /var/www/html/sport-registration
 composer require phpoffice/phpspreadsheet
 
 # Setze die Berechtigungen für das Repository
