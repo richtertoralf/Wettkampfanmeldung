@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 
 /**
  * conformation.php
@@ -22,7 +25,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Anmeldung</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Hier wird die CSS-Datei eingebunden -->
+  <link rel="icon" type="image/x-icon" href="skiCC.ico">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -30,13 +34,13 @@
   <div class="container registration">
 
     <header>
-      <?php require('raceInfo.php'); ?>
-      <p><?php echo $eventName; ?></p>
-      <p><?php echo $organizer; ?></p>
-      <p><?php echo $date; ?></p>
+      <?php require('php/raceInfo.php'); ?>
     </header>
 
     <?php
+
+    chdir(__DIR__);
+
     // Überprüfen, ob die Anfrage vom POST-Formular kommt
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Formulardaten erhalten
@@ -48,7 +52,12 @@
       $club = $_POST["regEntry"][0]["club"];
       $association = $_POST["regEntry"][0]["association"];
       $group = $_POST["regEntry"][0]["group"];
-      $email = $_POST["single_email"];
+      $email = $_POST["regEntry"][0]["single_email"];
+      $email = $_POST["regEnty"][0]["single_email"];
+
+
+      // Pfad zur bestehenden CSV-Datei
+      $csvFilePath = 'data/data.csv';
 
       // Spaltenköpfe für die CSV-Datei
       // FIS-Code-Nr.,Name,Vorname,Verband,Verein,Jahrgang,Geschlecht,FIS-Distanzpunkte,FIS-Sprintpunkte,
@@ -79,9 +88,9 @@
         $email        // E-Mail
       ];
 
-      $csvFile = fopen("data.csv", "a"); // öffne die CSV-Datei im Anhänge-Modus
+      $csvFile = fopen($csvFilePath, "a"); // öffne die CSV-Datei im Anhänge-Modus
 
-      if (filesize("data.csv") == 0) {
+      if (filesize($csvFilePath) == 0) {
         // Wenn die Datei leer ist, schreibe die Spaltenköpfe
         fputcsv($csvFile, $headers);
       }
@@ -107,7 +116,7 @@
     }
 
     // Navigation einfügen
-    include('navigation.php');
+    require('php/navigation.php');
     ?>
   </div>
 
