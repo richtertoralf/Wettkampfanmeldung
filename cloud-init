@@ -5,6 +5,12 @@ packages:
   - php-fpm
   - git
   - composer
+  - php-dom
+  - php-gd
+  - php-xml
+  - php-xmlreader
+  - php-xmlwriter
+  - php-zip
 
 write_files:
   - path: /etc/nginx/sites-available/sport-registration.conf
@@ -37,7 +43,9 @@ runcmd:
   - cd /var/www/html
   - git clone https://github.com/richtertoralf/sport-registration/
   - cd /var/www/html/sport-registration
-  - apt-get install php-dom php-gd php-xml php-xmlreader php-xmlwriter php-zip -y
   - composer require phpoffice/phpspreadsheet
+  - # chmod -R 644 /var/www/html/
+  - # find /var/www/html/ -type d -exec chmod 755 {} \;
   - chown -R www-data:www-data /var/www/html/
-  - chmod -R 775 /var/www/html/
+  - chmod -R 775 /var/www/html
+  
