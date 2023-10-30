@@ -25,17 +25,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anmeldung</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="skiCC.ico">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
     <div class="container registration">
         <header>
-            <?php require('raceInfo.php'); ?>
-            <p><?php echo $eventName; ?></p>
-            <p><?php echo $organizer; ?></p>
-            <p><?php echo $date; ?></p>
+            <?php require('php/raceInfo.php'); ?>
         </header>
 
         <h2>Anmeldung</h2>
@@ -48,7 +46,7 @@
                 <h3>Einzelanmeldung</h3>
                 <div>
                     <label for="formSpNr">Startpass</label>
-                    <input type="text" name="regEntry[0][SpNr]">
+                    <input type="text" id="formSpNr" name="regEntry[0][SpNr]" placeholder="z.B.: 1357-2468">
                     <small>
                         <p>SVSAC Startpassnummer besteht aus zwei vierstelligen Zahlenreihen, die mit einem Bindestrich verbunden sind, z.B. 2487-8421. Die Nummer findest du auf deinem SVS-Ausweis.
                         <p>
@@ -56,31 +54,31 @@
                 </div>
                 <div>
                     <label for="formsurname">Nachname<span class="required">*</span></label>
-                    <input type="text" name="regEntry[0][surname]" required>
+                    <input type="text" id="formsurname" name="regEntry[0][surname]" required>
                 </div>
                 <div>
                     <label for="formforename">Vorname<span class="required">*</span></label>
-                    <input type="text" name="regEntry[0][forename]" required>
+                    <input type="text" id="formforename" name="regEntry[0][forename]" required>
                 </div>
                 <div>
                     <label for="formsex">Geschlecht<span class="required">*</span></label>
-                    <select name="regEntry[0][sex]" required>
+                    <select id="formsex" name="regEntry[0][sex]" required>
                         <option value="m">männlich</option>
                         <option value="w">weiblich</option>
                     </select>
                 </div>
                 <div>
                     <label for="formyearofbirth">Geburtsjahr<span class="required">*</span></label>
-                    <input type="text" name="regEntry[0][yearofbirth]" pattern="(?:19|20)[0-9]{2}" required>
+                    <input type="text" id="formyearofbirth" name="regEntry[0][yearofbirth]" pattern="(?:19|20)[0-9]{2}" placeholder="z.B.: 1989" required>
                     <small>
                         <p>Das Geburtsjahr muss als vierstellige Zahl angegeben werden, z.B. "1989".</p>
                     </small>
                 </div>
                 <div>
                     <?php
-                    include 'getClubs.php';
+                    include 'php/getClubs.php';
                     ?>
-                    <label for="formclub">Verein<span class="required">*</span></label>
+                    <label for="selectedClub">Verein<span class="required">*</span></label>
                     <input list="vereinsliste" name="regEntry[0][club]" id="selectedClub" autocomplete="off" required>
                     <datalist id="vereinsliste">
                         <?php
@@ -91,12 +89,12 @@
                     </datalist>
                 </div>
                 <div>
-                    <label for="formclub">Verband</label>
-                    <input type="text" name="regEntry[0][association]" id="association" readonly>
+                    <label for="formassociation">Verband</label>
+                    <input type="text" name="regEntry[0][association]" id="formassociation" placeholder="wird automatisch eingetragen" readonly>
                 </div>
                 <div>
                     <label for="formgroup">Startgruppe</label>
-                    <select name="regEntry[0][group]">
+                    <select id="formgroup" name="regEntry[0][group]">
                         <?php
                         // Schleife zum Generieren von Gruppenoptionen (1 bis 4)
                         for ($i = 1; $i <= 4; $i++) {
@@ -107,7 +105,7 @@
                 </div>
                 <div>
                     <label for="formsingle_email">E-Mail<span class="required">*</span></label>
-                    <input type="email" name="single_email" required>
+                    <input type="email" id="formsingle_email" name="regEntry[0][single_email]" required>
                 </div>
                 <small>
                     <p>Die mit einem Stern* versehenen Felder sind Pflichtangaben.</p>
@@ -122,7 +120,7 @@
                     <a href="upload.php" class="download-link">Meldedatei hochladen</a>
                     <details>
                         <summary>
-                            Bitte verwende unbedingt diese Vorlage für die Meldedatei: <a href="VorlageMeldedatei.csv" download>VorlageMeldedatei.csv</a>
+                            Bitte verwende unbedingt diese Vorlage für die Meldedatei: <a href="data/VorlageMeldedatei.csv" download>VorlageMeldedatei.csv</a>
                         </summary>
                         <p>Die Meldeliste muss den Vorgaben für das Programm Winlaufen des Deutschen Skiverbandes entsprechen.</p>
                         <p>Die Spaltenköpfe dürfen nicht verändert werden.</p>
@@ -133,10 +131,10 @@
         </form>
         <?php
         // Navigation einfügen
-        include('navigation.php');
+        require('php/navigation.php');
         ?>
     </div>
 </body>
-<script src="getAssociation.js"></script>
+<script src="js/getAssociation.js"></script>
 
 </html>
