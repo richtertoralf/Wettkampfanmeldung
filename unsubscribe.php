@@ -5,16 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danke</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="skiCC.ico">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
     <div class="container registration">
         <header>
-            <?php require('raceInfo.php'); ?>
-            <p><?php echo $eventName; ?></p>
-            <p><?php echo $organizer; ?></p>
-            <p><?php echo $date; ?></p>
+            <?php require('php/raceInfo.php'); ?>
         </header>
         <h2>Auf Wiedersehen</h2>
         <div class="frame">
@@ -23,7 +21,7 @@
         </div>
         <?php
         // Navigation einfügen
-        include('navigation.php');
+        require('php/navigation.php');
         ?>
     </div>
 </body>
