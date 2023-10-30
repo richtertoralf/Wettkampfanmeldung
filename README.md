@@ -8,6 +8,7 @@ Dieses Repository stellt ein einfaches Beispiel für eine Webseite zur Wettkampf
 # Aktualisiere das System und installiere nginx und php mit composer
 sudo apt update -y && sudo apt upgrade -y
 sudo apt install nginx php-fpm composer git -y
+sudo apt install php-dom php-gd php-xml php-xmlreader php-xmlwriter php-zip -y
 
 # Überprüfe die installierten Versionen
 php -v && nginx -v
