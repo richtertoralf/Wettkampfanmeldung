@@ -53,8 +53,7 @@ ini_set('display_errors', 1);
       $association = $_POST["regEntry"][0]["association"];
       $group = $_POST["regEntry"][0]["group"];
       $email = $_POST["regEntry"][0]["single_email"];
-      $email = $_POST["regEnty"][0]["single_email"];
-
+      $email = $_POST["regEntry"][0]["single_email"];
 
       // Pfad zur bestehenden CSV-Datei
       $csvFilePath = 'data/data.csv';
