@@ -1,15 +1,18 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
+chdir(__DIR__);
+
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 // Include Autoloader of PhpSpreadsheet
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 // Dateipfad zur data.csv-Datei
-$csvFile = 'data.csv';
+$csvFile = '../data/data.csv';
 
 // Dateinamen für den Download (CSV)
 $downloadCsvFilename = 'meldeliste.csv';
