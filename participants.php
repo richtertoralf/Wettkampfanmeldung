@@ -22,24 +22,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Meldeliste</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="skiCC.ico">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
     <div class="container participants">
 
         <header>
-            <?php require('raceInfo.php'); ?>
-            <p><?php echo $eventName; ?></p>
-            <p><?php echo $organizer; ?></p>
-            <p><?php echo $date; ?></p>
+            <?php require('php/raceInfo.php'); ?>
         </header>
 
         <h2>Meldeliste</h2>
 
         <?php
+
+        chdir(__DIR__);
+
+        // Dateipfad zur data.csv-Datei
+        $csvFile = 'data/data.csv';
+
         // CSV-Datei öffnen und Inhalte lesen
-        $csvFile = fopen("data.csv", "r");
+        $csvFile = fopen($csvFile, "r");
 
         // Überprüfen, ob die Datei erfolgreich geöffnet wurde
         if ($csvFile !== FALSE) {
@@ -85,12 +89,12 @@
         ?>
 
         <!-- Hier kommen zwei Links, um die Meldeliste herunterzuladen -->
-        <a href="download.php?format=csv" class="download-link">Meldeliste incl. E-Mail Adressen als CSV-Datei herunterladen</a>
-        <a href="download.php?format=xlsx" class="download-link">Meldeliste als XLSX-Datei für Winlaufen-Import herunterladen</a>
-        
+        <a href="php/download.php?format=csv" class="download-link">Meldeliste incl. E-Mail Adressen als CSV-Datei herunterladen</a>
+        <a href="php/download.php?format=xlsx" class="download-link">Meldeliste als XLSX-Datei für Winlaufen-Import herunterladen</a>
+
         <?php
         // Navigation einfügen
-        include('navigation.php');
+        require('php/navigation.php');
         ?>
     </div>
 </body>
