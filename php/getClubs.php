@@ -1,4 +1,6 @@
 <?php
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 /**
  * getClubs.php
@@ -21,8 +23,11 @@
  * @return array Ein assoziatives Array, das Vereinsnamen als Schlüssel und Verbände als Werte enthält.
  */
 
+chdir(__DIR__);
+
 function readClubsFromCSV($filename)
 {
+
     $clubs = [];
 
     if (($handle = fopen($filename, "r")) !== FALSE) {
@@ -37,4 +42,4 @@ function readClubsFromCSV($filename)
     return $clubs;
 }
 
-$clubs = readClubsFromCSV('clubs.csv');
+$clubs = readClubsFromCSV('../data/clubs.csv');
