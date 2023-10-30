@@ -21,7 +21,7 @@ document.getElementById("selectedClub").addEventListener("change", function () {
     var xhr = new XMLHttpRequest();
 
     // Anfrage-Parameter festlegen
-    xhr.open("POST", "getAssociation.php", true);
+    xhr.open("POST", "php/getAssociation.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     // Fehlerbehandlung für die Anfrage
@@ -41,12 +41,12 @@ document.getElementById("selectedClub").addEventListener("change", function () {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
                 // Feld "association" mit der Serverantwort aktualisieren
-                document.getElementById("association").value = xhr.responseText;
+                document.getElementById("formassociation").value = xhr.responseText;
                 // Konsolenausgabe der Serverantwort
-                // console.log("Antwort des Servers: " + xhr.responseText);
+                console.log("Antwort des Servers: " + xhr.responseText);
             } else {
                 // Konsolenausgabe bei Anfragefehlschlag
-                // console.error("Anfrage fehlgeschlagen mit Statuscode: " + xhr.status);
+                console.error("Anfrage fehlgeschlagen mit Statuscode: " + xhr.status);
             }
         }
     };
