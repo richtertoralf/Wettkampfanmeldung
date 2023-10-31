@@ -134,10 +134,10 @@
             }
 
             // Ausgabe der Array zur Fehlersuche
-            echo "<pre>";
-            print_r($csvArray);
-            print_r($uploadedArray);
-            echo "</pre>";
+            // echo "<pre>";
+            // print_r($csvArray);
+            // print_r($uploadedArray);
+            // echo "</pre>";
 
             if (empty($uploadedArray)) {
                 return 'Die hochgeladene Datei enthält keine Daten.';
