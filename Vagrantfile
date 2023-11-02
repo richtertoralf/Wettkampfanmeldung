@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
     vb.memory = "1024"
     vb.cpus = 2
     vb.name = "Webserver01"
+    vb.disksize = "20GB"
   end
   
   config.vm.provision "shell", inline: <<-SHELL
