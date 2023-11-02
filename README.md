@@ -7,7 +7,8 @@ Dieses Repository stellt ein einfaches Beispiel für eine Webseite zur Wettkampf
 ## Installation in VirtualBox per vagrant
 >Du kannst das Vagrantfile nutzen, um in Oracle VirtualBox automatisch diese Webanwendung für Testzwecke zu installieren.
 
-## Installation von nginx und php auf Ubuntu 22.04
+## Installation per Hand
+### nginx und php auf Ubuntu 22.04
 ```
 # Aktualisiere das System und installiere nginx und php mit composer
 sudo apt update -y && sudo apt upgrade -y
