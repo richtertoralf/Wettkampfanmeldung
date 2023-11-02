@@ -97,7 +97,7 @@ Organizer = "SSV 1863 Sayda"
 Date = "31.12.2023"
 ```
 
->Die gemeldeten Sportler werden in der Datei `data/data.csv` gespeichert, weil das ein einfaches und gut lesbares Format ist. Ich verwende folgende Spalten, der der aktuellen Vorlage für Winlaufen zuzüglich einem Feld für "E-Mail" entsprechen.
+>Die gemeldeten Sportler werden in der Datei `data/data.csv` gespeichert, weil das ein einfaches und gut lesbares Format ist. Ich verwende folgende Spalten, die der aktuellen Vorlage für Winlaufen zuzüglich einem Feld für "E-Mail" entsprechen.
 
 ```
 FIS-Code-Nr.,Name,Vorname,Verband,Verein,Jahrgang,Geschlecht,FIS-Distanzpunkte,FIS-Sprintpunkte,Startnummer,Gruppe,DSV-Code-Nr.,Startpass,Waffen-Nr.,Nation,Transponder-ID,E-Mail
