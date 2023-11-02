@@ -1,5 +1,6 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/jammy64"
+  config.vm.disk :disk, size: "20GB", primary: true
   
   # Hostnamen festlegen
   config.vm.hostname = "webserver01"
@@ -14,7 +15,6 @@ Vagrant.configure("2") do |config|
     vb.memory = "1024"
     vb.cpus = 2
     vb.name = "Webserver01"
-    vb.disksize = "20GB"
   end
   
   config.vm.provision "shell", inline: <<-SHELL
