@@ -25,7 +25,7 @@ sudo adduser $USER www-data
 
 # Logge dich aus und wieder ein, um die Gruppenänderungen zu übernehmen
 ```
-## Konfiguration von nginx und php
+### Konfiguration von nginx und php
 Nach der Installation von nginx und php müssen die Konfigurationsdateien entsprechend angepasst werden. In diesem Fall folgen wir dem Debian/Ubuntu-Sonderweg für die nginx-Konfiguration.
 ```
 # Lösche den Symlink zur vorhandenen Konfigurationsdatei, um Konflikte zu vermeiden
@@ -70,7 +70,7 @@ sudo systemctl restart nginx
 sudo systemctl restart php8.1-fpm
 
 ```
-## Seiteninhalte einfügen
+### Seiteninhalte einfügen
 ```
 # Wechsle zum Webverzeichnis
 cd /var/www/html
@@ -78,12 +78,27 @@ cd /var/www/html
 # Klone das sport-registration-Repository
 git clone https://github.com/richtertoralf/sport-registration/
 
-# wechsel ins Projektverzeichnis und installiere phpoffice/phpspreadsheet per composer
+# Wechsel ins Projektverzeichnis und installiere phpoffice/phpspreadsheet per composer
 cd /var/www/html/sport-registration
 composer require phpoffice/phpspreadsheet
+# Dieses Modul wird zum Upload und Download von Microsoft Excel-Dateien benötigt.
 
 # Setze die Berechtigungen für das Repository
 sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 775 /var/www/html
+```
+### Konfiguration der Webseite
+>In der Datei `ini/raceInfo.ini` befinden sich die Daten zum Wettkampf: Wettkampfname, Ausrichter und Wettkampfdatum. In diesem einfachen Beispiel wird auf eine Datenbank verzichtet, um die Komplexität gering zu halten.
 
+```
+; raceInfo.ini
+EventName = "Silvesterlauf"
+Organizer = "SSV 1863 Sayda"
+Date = "31.12.2023"
+```
+
+>Die gemeldeten Sportler werden in der Datei `data/data.csv` gespeichert, weil das ein einfaches und gut lesbares Format ist. Ich verwende folgende Spalten, der der aktuellen Vorlage für Winlaufen zuzüglich einem Feld für "E-Mail" entsprechen.
+
+```
+FIS-Code-Nr.,Name,Vorname,Verband,Verein,Jahrgang,Geschlecht,FIS-Distanzpunkte,FIS-Sprintpunkte,Startnummer,Gruppe,DSV-Code-Nr.,Startpass,Waffen-Nr.,Nation,Transponder-ID,E-Mail
 ```
