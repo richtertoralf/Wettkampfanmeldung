@@ -1,9 +1,23 @@
 <?php
-
-chdir(__DIR__);
-
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
+
+/**
+ * download.php
+ *
+ * Dieses Skript ermöglicht das Herunterladen der Meldeliste als CSV- oder XLSX-Datei.
+ * Es liest die Daten aus der 'data.csv'-Datei, erstellt ein Spreadsheet und bietet die Optionen,
+ * die Meldeliste entweder als CSV oder XLSX herunterzuladen.
+ *
+ * PHP-Version 8
+ *
+ * @category   Data Download
+ * @package    Registration_Form
+ * @author     Toralf Richter
+ * @link       https://github.com/richtertoralf/sport-registration/
+ */
+
+chdir(__DIR__);
 
 // Include Autoloader of PhpSpreadsheet
 require '../vendor/autoload.php';
@@ -25,10 +39,6 @@ $csvData = file_get_contents($csvFile);
 $lines = explode(PHP_EOL, $csvData);
 
 // Daten aus der CSV in ein mehrdimensionales Array einfügen
-// $dataArray = [];
-// foreach ($lines as $line) {
-//     $dataArray[] = str_getcsv($line);
-// }
 
 $dataArray = [];
 foreach ($lines as $line) {
