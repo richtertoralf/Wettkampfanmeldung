@@ -16,30 +16,37 @@
  * @link       https://github.com/richtertoralf/sport-registration/
  */
 
-/**
- * Diese Funktion liest Vereine und ihre Verbände aus einer CSV-Datei.
- *
- * @param string $filename Der Pfad zur CSV-Datei.
- * @return array Ein assoziatives Array, das Vereinsnamen als Schlüssel und Verbände als Werte enthält.
- */
-
 chdir(__DIR__);
 
+// Dateipfad zur CSV-Datei mit Vereinsinformationen
+$clubsFilePath = '../data/clubs.csv';
+
+/**
+ * Funktion zum Lesen von Vereinen und ihren Verbänden aus einer CSV-Datei.
+ *
+ * @param string $filename - Der Pfad zur CSV-Datei mit Vereinsinformationen.
+ * @return array - Ein assoziatives Array, das Vereinsnamen als Schlüssel und Verbände als Werte enthält.
+ */
 function readClubsFromCSV($filename)
 {
 
     $clubs = [];
 
+    // Öffne die CSV-Datei im Lesemodus
     if (($handle = fopen($filename, "r")) !== FALSE) {
+        // Lies jede Zeile der CSV-Datei
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-            $club = $data[0];
-            $association = $data[1];
-            $clubs[$club] = $association;
+            $club = $data[0]; // Der Vereinsname befindet sich in der ersten Spalte
+            $association = $data[1]; // Der Verband befindet sich in der zweiten Spalte
+            $clubs[$club] = $association; // Füge den Vereinsnamen als Schlüssel und den Verband als Wert hinzu
         }
+        // Schließe die CSV-Datei
         fclose($handle);
     }
 
+    // Gib das Array mit den Vereinen und Verbänden zurück
     return $clubs;
 }
 
-$clubs = readClubsFromCSV('../data/clubs.csv');
+// Rufe die Funktion auf und lese die Vereine und Verbände aus der 'clubs.csv'-Datei
+$clubs = readClubsFromCSV($clubsFilePath);
