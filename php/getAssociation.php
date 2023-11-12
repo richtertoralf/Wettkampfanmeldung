@@ -1,4 +1,6 @@
 <?php
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 /**
  * getAssociation.php
@@ -13,13 +15,17 @@
  * @link       https://github.com/richtertoralf/sport-registration/
  */
 
-
 chdir(__DIR__);
 
 // Lese die POST-Daten (ausgewählter Vereinsname) aus dem HTTP-Request
 $selectedClub = $_POST['selectedClub'];
 
-// Diese Funktion liest Vereine und ihre Verbände aus einer CSV-Datei.
+/**
+ * Funktion zum Lesen von Vereinen und ihren Verbänden aus einer CSV-Datei.
+ *
+ * @param string $filename - Der Dateipfad zur CSV-Datei mit Vereinsinformationen.
+ * @return array - Ein assoziatives Array, das Vereine als Schlüssel und ihre Verbände als Werte enthält.
+ */
 function readClubsFromCSV($filename)
 {
     $clubs = [];
