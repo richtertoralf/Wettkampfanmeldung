@@ -1,6 +1,7 @@
 /**
  * Event-Listener für Änderungen am Eingabefeld Verein.
- * Sendet eine XMLHttpRequest an den Server und aktualisiert das Feld "association" mit der Serverantwort.
+ * Abhängig vom Feld "club" (Verein) wird der in einer Liste zugeordnete Verband zugeordnet. 
+ * Sendet eine XMLHttpRequest an den Server und aktualisiert das Feld "association" (Verband) mit der Serverantwort.
  *
  * @function
  * @event change
