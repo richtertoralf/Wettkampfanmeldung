@@ -100,7 +100,7 @@ composer require phpoffice/phpspreadsheet
 sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 775 /var/www/html
 ```
-### Konfiguration der Webseite
+### Infos zur Konfiguration der Webseite
 >In der Datei `data/raceInfo.ini` befinden sich die Daten zum Wettkampf: Wettkampfname, Ausrichter und Wettkampfdatum. Über den Adminbereich können diese daten geändert werden. In diesem einfachen Beispiel wird auf eine Datenbank verzichtet, um die Komplexität gering zu halten.
 
 ```
