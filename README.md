@@ -1,5 +1,18 @@
 # Wettkampfanmeldung (sport-registration)
 Dieses Repository stellt ein einfaches Beispiel für eine Webseite zur Wettkampfanmeldung dar.
+### Beschreibung
+Diese Anwendung ermöglicht Sportlern, sich selbst für einen Wettbewerb anzumelden, indem sie persönliche Informationen wie Name, Vorname, Geschlecht, Geburtsjahr, Verein, Verband, Startgruppe und E-Mail-Adresse über ein Formular eingeben. Zusätzlich besteht die Option, sich gruppenweise über einen Dateiupload anzumelden. Dazu wird eine Vorlage verwendet, die es Vereinen ermöglicht auch zusätzliche Angaben, wie z.B. DSV-Code, FIS-Code, Nation und waffen-Nr. für Biathlonwettbewerbe anzugeben.  
+Es gibt einen Admin-Bereich, über den die Wettkampfinformationen (Wettkampfname, Wettkampfdatum und Ausrichter) füe die Webseite eingetragen werden können.  
+Adinistratoren können die komplette Meldeliste für den direkten Import in Winlaufen herunterladen.
+
+### Adminzugang
+In der Datei `ini/user.ini` sind die Zugangsdaten für den Adminbereich abgelegt.
+```
+; user.ini
+[admin]
+username=admin
+password=winlaufen
+```
 
 ## Installation per cloud-init
 >In der Datei cloud-init findest du einen Vorschlag, um den Server automatisch aufzusetzen und die Webanwendung einzurichten. Du solltest nur darauf achten, eine Ubuntu Distribution z. B. 22.04, auzuwählen. Getestet habe ich diese cloud-init bei Hetzner.
@@ -88,13 +101,20 @@ sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 775 /var/www/html
 ```
 ### Konfiguration der Webseite
->In der Datei `ini/raceInfo.ini` befinden sich die Daten zum Wettkampf: Wettkampfname, Ausrichter und Wettkampfdatum. In diesem einfachen Beispiel wird auf eine Datenbank verzichtet, um die Komplexität gering zu halten.
+>In der Datei `data/raceInfo.ini` befinden sich die Daten zum Wettkampf: Wettkampfname, Ausrichter und Wettkampfdatum. Über den Adminbereich können diese daten geändert werden. In diesem einfachen Beispiel wird auf eine Datenbank verzichtet, um die Komplexität gering zu halten.
 
 ```
 ; raceInfo.ini
 EventName = "Silvesterlauf"
 Organizer = "SSV 1863 Sayda"
 Date = "31.12.2023"
+```
+>In der Datei `ini/user.ini` sind die Zugangsdaten für den Adminbereich abgelegt.
+```
+; user.ini
+[admin]
+username=admin
+password=winlaufen
 ```
 
 >Die gemeldeten Sportler werden in der Datei `data/data.csv` gespeichert, weil das ein einfaches und gut lesbares Format ist. Ich verwende folgende Spalten, die der aktuellen Vorlage für Winlaufen zuzüglich einem Feld für "E-Mail" entsprechen.
