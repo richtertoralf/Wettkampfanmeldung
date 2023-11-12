@@ -1,77 +1,138 @@
 body {
     font-family: 'Arial Narrow', Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #f7f7f7;
     color: #333;
+    background-color: #f4f4f4;
+    /* Hellgrau */
 }
+
+/* Kopfzeile mit Wettkampfinfos */
 
 header {
     display: grid;
+    grid-template-rows: auto auto;
     grid-template-columns: 1fr auto 1fr;
     gap: 10px;
     justify-content: center;
     align-items: center;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+    padding: 5px;
+    margin: 0px 3vw;
+    font-size: 14px;
 }
 
-header p {
-    margin: 5px;
-    font-size: small;
+/* einzelne Elemente in der Kopfzeile */
+
+.event-name {
+    grid-row: 1;
+    grid-column: 1;
 }
 
-header p:nth-child(1) {
-    text-align: left;
+.organizer {
+    grid-row: 1 / span 2;
+    /* Erstreckt sich über zwei Zeilen */
+    grid-column: 2;
+    justify-self: center;
+    /* Horizontal zentrieren */
+    align-self: center;
+    /* Vertikal zentrieren */
 }
 
-header p:nth-child(3) {
+.date {
+    grid-row: 2;
+    grid-column: 1;
+}
+
+.burger-menu {
+    grid-row: 1 / span 2;
+    grid-column: 3;
     text-align: right;
+    align-self: center;
+    font-size: 24px;
+    cursor: pointer;
 }
+
+.burger-links {
+    display: block;
+    text-align: right;
+    position: absolute;
+    top: 50px;
+    right: 1vw;
+    z-index: 2;
+}
+
+.nav-burger {
+    display: none;
+    background-color: #333;
+    color: white;
+    font-size: medium;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.nav-burger:hover {
+    background-color: #2c682f;
+}
+
+/* Inhaltscontainer für alle Seiten*/
 
 .container {
     display: grid;
     grid-template-columns: 1fr;
     margin: 0 auto;
     padding: 3vw;
-    background-color: rgb(214, 214, 214);
+    background-color: #f4f4f4;
     max-width: 97vw;
 }
 
-.required {
-    color: crimson;
-}
+/* .registration,
+.participants,
+.conformation,
+.unsubscribe {
+    background-color: #f4f4f4;
+} */
 
 h1,
 h2 {
     text-align: center;
     margin: 10px 0;
     color: #333;
+    font-size: 20px;
 }
+
+/* Stil für die Formulare - Anmeldung */
 
 form,
 .frame {
-    padding: 2vw;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1vw;
+    /* background-color: #fff; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+legend {
+    font-size: small;
+}
+
+.required {
+    color: crimson;
 }
 
 form input[type="text"],
 form input[type="number"],
 form input[type="email"],
-form input[list] {
+form input[list],
+form input[type="text"],
+form input[type="password"] {
     width: 95%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: rgb(255, 222, 180);
+    border: 1px solid #9c9c9c;
+    background-color: rgb(255, 255, 255);
 }
 
 form input[type="file"] {
     margin: 10px 0px;
-    background-color: rgb(255, 222, 180);
+    width: 95%;
+    background-color: rgb(255, 255, 255);
     padding: 10px;
 }
 
@@ -82,25 +143,29 @@ form label+select {
     padding: 10px;
 }
 
-form nav {
-    padding-right: 10px;
+#submit-single-registration {
+    font-size: small;
 }
+
+/* form nav {
+    padding-right: 10px;
+} */
 
 form summary {
     margin: 10px 0px;
 }
 
 aside {
-    background-color: #f2f2f2;
-    color: #333;
-    padding: 1px 10px 1px;
+    color: #451212;
+    padding: 5px 10px 5px;
+    margin: 5px;
     width: 95%;
-    border-radius: 5px;
-    font-size: 0.8em;
 }
 
+/* Stil für die Tabelle - Meldeliste */
+
 table {
-    width: 90vw;
+    width: 93vw;
     border-collapse: collapse;
     margin-top: 5px;
 }
@@ -108,69 +173,71 @@ table {
 th,
 td {
     border: 1px solid #ddd;
-    padding: 3px;
+    padding: 5px;
     text-align: left;
-    max-width: 20vw;
     overflow: hidden;
     text-overflow: ellipsis;
-    border-radius: 3px;
 }
 
 th {
-    background-color: #4CAF50;
+    background-color: #333;
+    /* Dunkelgrau */
     color: white;
     font-size: 0.9em;
 }
 
 td {
     font-size: 0.9em;
-    background-color: rgb(255, 222, 180);
+    background-color: rgb(255, 242, 226);
 }
 
 /* Stil für Navigationsbereich */
+
 nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 5px;
     margin: 10px 0px;
     justify-content: center;
+    padding: 5px;
+    margin: 0px 3vw;
 }
 
-/* Stil für Absenden-Button */
 button.nav-button,
 a.nav-button,
 .nav-button {
-    background-color: #4CAF50;
+    background-color: #333;
+    /* Dunkelgrau */
     color: white;
     font-size: medium;
     text-decoration: none;
     padding: 5px 10px;
     margin: 10px 0px;
     max-width: 30vw;
-    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
     border: none;
     box-shadow: none;
 }
 
-/* Hover-Stil für beide Buttons */
 .nav-button:hover {
     background-color: #2c682f;
 }
 
-.download-link {
-    background-color: #6fcd72;
+.download-link,
+.upload-link {
+    background-color: #333;
+    /* Dunkelgrau */
     color: white;
     padding: 5px 10px;
     border: none;
-    border-radius: 5px;
-    /* display: inline-block; */
+    display: inline-block;
     transition: background-color 0.3s;
     margin-top: 10px;
     max-width: 60vw;
 }
 
-.download-link:hover {
+.download-link:hover,
+.upload-link:hover {
     background-color: #46a14b;
 }
