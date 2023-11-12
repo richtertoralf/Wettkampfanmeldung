@@ -3,7 +3,7 @@ Dieses Repository stellt ein einfaches Beispiel für eine Webseite zur Wettkampf
 
 ## Beschreibung
 Diese Anwendung ermöglicht Sportlern, sich selbst für einen Wettbewerb anzumelden, indem sie persönliche Informationen wie Name, Vorname, Geschlecht, Geburtsjahr, Verein, Verband, Startgruppe und E-Mail-Adresse über ein Formular eingeben.  
-Es gibt eine Autovervollständigungsfunktion bei der Eingabe der Vereinsnamen und des Verbandes. Dazu habe ich unter `data/clubs.csv` ein Liste mit Vereinen angelegt. Stand 11/2023 sind alle DSV-TALENT-PUNKTE
+Es gibt eine Autovervollständigungsfunktion bei der Eingabe der Vereinsnamen und des Verbandes. Dazu habe ich unter `data/clubs.csv` eine Liste mit Vereinen angelegt. Stand 11/2023 sind alle DSV-TALENT-PUNKTE
 2023/2024 und zusätzlich alle Vereine, die Mitglied im Skiverband Sachsen sind, eingetragen. Die Liste kann ergänzt werden.  
 Zusätzlich besteht die Option, sich gruppenweise über einen Dateiupload anzumelden. Dazu wird eine Vorlage verwendet, die es Vereinen ermöglicht auch zusätzliche Angaben, wie z.B. DSV-Code, FIS-Code, Nation und Waffen-Nr. für Biathlonwettbewerbe anzugeben.  
 Es gibt einen Admin-Bereich, über den die Wettkampfinformationen (Wettkampfname, Wettkampfdatum und Ausrichter) für die Webseite eingetragen werden können.  
